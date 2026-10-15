@@ -1,0 +1,16 @@
+Airline-code audit for ticket collection, 2026-10-11.
+The list supports recording past tickets; inclusion does not assert current operation.
+Brand colors are UI presentation colors, not verified official brand specifications.
+
+G5: https://www.iata.org/en/about/members/airline-list/china-express-airlines/480/
+Domestic airline names: https://www.caac.gov.cn/GYMH/MHGK/HKGS/
+AQ DZ EU FU GY JD KY NS OQ QW RY UQ Y8 8L:
+https://www.shanghaiairport.com/uploadfiles/2024/08/20240805170511033.pdf
+BK DR JR and other domestic codes: https://www.tbia.cn/mub?m1=273&m2=443
+GX: https://www.iata.org/en/about/members/airline-list/gx-airlines/492/
+9H: https://www-ade.iata.org/en/about/members/airline-list/air-changan/576/
+A6: https://www.hunanairport.cn/125/7754.html
+GT: https://www.airguilin.com/stdair/airline/gt/static_term/HeadPassengerAndBaggage?sign=true
+CN: https://www.caac.gov.cn/PHONE/XWZX/HYDT/200711/t20071130_19179.html
+9D: https://www.caac.gov.cn/XXGK/XXGK/TZTG/201901/t20190104_193831.html
+LT: https://www.caac.gov.cn/big5/www.caac.gov.cn/XXGK/XXGK/TZTG/201606/t20160629_38730.html

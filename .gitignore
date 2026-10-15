@@ -1,0 +1,25 @@
+# Local environments and build outputs
+.venv*/
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+.idea/
+.vscode/
+# Personal records, credentials and generated diagnostics
+data/
+*.db
+*.db-*
+*.sqlite*
+*.bak
+*.log
+*.err
+.env
+.env.*
+!.env.example
+settings.json
+ai_config.json
+design/
+design_backup/
+_smoke_profile.py
