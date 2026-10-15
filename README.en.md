@@ -33,7 +33,7 @@ The bundled ticket data offers 41 airline choices, coordinates for 140 airports 
 
 ## Install
 
-Download `客行录-安装程序-1.0.0.exe` from [Releases](https://github.com/changanhe1205-afk/kexinglu/releases). Close the app before installing. A desktop shortcut is selected by default and can be disabled in the installer.
+Download `Kexinglu-Setup-1.0.0.exe` from [Releases](https://github.com/changanhe1205-afk/kexinglu/releases). Close the app before installing. A desktop shortcut is selected by default and can be disabled in the installer.
 
 The package targets **Windows 10 / 11 x64** and includes Python and the desktop runtime. No app account or separate Python installation is required. Core journaling works offline. The application interface is primarily Simplified Chinese; this English introduction does not imply full English UI localization.
 

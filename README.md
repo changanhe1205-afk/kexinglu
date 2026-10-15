@@ -35,7 +35,7 @@
 
 ## 安装
 
-1. 在 [Releases](https://github.com/changanhe1205-afk/kexinglu/releases) 下载 `客行录-安装程序-1.0.0.exe`。
+1. 在 [Releases](https://github.com/changanhe1205-afk/kexinglu/releases) 下载 `Kexinglu-Setup-1.0.0.exe`。
 2. 退出正在运行的客行录，运行安装包；默认建立桌面快捷方式，也可以取消勾选。
 3. 启动后直接记录，无需创建应用账号。核心记录功能可以离线使用。
 
