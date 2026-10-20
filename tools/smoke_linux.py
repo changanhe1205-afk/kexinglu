@@ -17,6 +17,11 @@ with log.open('w') as output:
                 raise RuntimeError(f'Packaged app exited: {process.returncode}')
             windows=subprocess.check_output(['xwininfo','-root','-tree'],text=True)
             if '客行录' in windows:
+                time.sleep(8)
+                if process.poll() is not None:
+                    raise RuntimeError('App exited after opening window')
+                from PIL import ImageGrab
+                ImageGrab.grab().save('dist/linux-smoke.png')
                 output.write('\nPASS: packaged native window opened with isolated HOME.\n')
                 output.flush()
                 break

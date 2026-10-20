@@ -14,7 +14,7 @@ jobs:
       - name: Desktop dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgtk-3-0 libsecret-1-0 libayatana-appindicator3-1 libgl1-mesa-dri xvfb x11-utils xdg-utils fonts-noto-cjk
+          sudo apt-get install -y libgtk-3-0 libsecret-1-0 libayatana-appindicator3-1 libgl1-mesa-dri libegl1 libgles2 xvfb x11-utils xdg-utils fonts-noto-cjk
           python -m pip install -r requirements.txt
       - name: Unit tests
         run: python -m unittest discover -s tests -p test_cloud_sync.py
@@ -32,4 +32,5 @@ jobs:
           path: |
             dist/Kexinglu-Linux-1.0.0-*
             dist/linux-smoke.txt
+            dist/linux-smoke.png
           if-no-files-found: error

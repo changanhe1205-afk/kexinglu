@@ -26,7 +26,7 @@ with tarfile.open(ROOT/'dist/Kexinglu-Linux-1.0.0-x86_64.tar.gz','w:gz') as arch
 deb = ROOT/'build/linux-deb'
 shutil.copytree(bundle,deb/'opt/kexinglu',dirs_exist_ok=True)
 (deb/'DEBIAN').mkdir(parents=True,exist_ok=True)
-(deb/'DEBIAN/control').write_text('Package: kexinglu\nVersion: 1.0.0\nArchitecture: amd64\nMaintainer: Kexinglu contributors\nDepends: libgtk-3-0, libstdc++6, libsecret-1-0, libayatana-appindicator3-1, libgl1, xdg-utils\nSection: utils\nPriority: optional\nDescription: Waylore travel journals and memories\n')
+(deb/'DEBIAN/control').write_text('Package: kexinglu\nVersion: 1.0.0\nArchitecture: amd64\nMaintainer: Kexinglu contributors\nDepends: libgtk-3-0, libstdc++6, libsecret-1-0, libayatana-appindicator3-1, libgl1, libegl1, libgles2, xdg-utils\nSection: utils\nPriority: optional\nDescription: Waylore travel journals and memories\n')
 apps=deb/'usr/share/applications';apps.mkdir(parents=True,exist_ok=True)
 (apps/'kexinglu.desktop').write_text('[Desktop Entry]\nType=Application\nName=Waylore\nName[zh_CN]=客行录\nExec=/opt/kexinglu/kexinglu\nIcon=/opt/kexinglu/kexinglu.png\nTerminal=false\nCategories=Office;Utility;\nStartupWMClass=flet\n',encoding='utf-8')
 subprocess.run(['dpkg-deb','--build','--root-owner-group',str(deb),'dist/Kexinglu-Linux-1.0.0-amd64.deb'],check=True)
