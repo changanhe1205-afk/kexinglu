@@ -1,5 +1,6 @@
 """Optional notebook shelf, composer and reader inside the travel page."""
 from __future__ import annotations
+from i18n import tr
 import asyncio
 import base64
 from copy import deepcopy
@@ -63,7 +64,7 @@ def open_shelf(page, groups, selected=None):
                 page.show_dialog(ft.AlertDialog(modal=True, bgcolor=theme.CARD_BG,
                     title=text('删除这本手账？',18),
                     content=text('只删除「'+book_title(item)+'」，原旅行日志和照片仍会保留。'),
-                    actions=[ft.TextButton('取消',on_click=lambda e:page.pop_dialog()),
+                    actions=[ft.TextButton(tr('取消'),on_click=lambda e:page.pop_dialog()),
                              ft.TextButton('删除手账',on_click=confirmed)]))
             rows.append(ft.Container(padding=18, border_radius=12, bgcolor=theme.CARD_BG_SOFT,
                 border=ft.Border.only(left=ft.BorderSide(4,theme.ACCENT)),
@@ -75,7 +76,7 @@ def open_shelf(page, groups, selected=None):
                     ft.IconButton(ft.Icons.DELETE_OUTLINE,tooltip='删除手账',on_click=remove)])))
         return dialog('旅行手账',ft.ListView(controls=rows,spacing=18),[
             ft.TextButton('返回旅行日志',on_click=lambda e:page.pop_dialog()),
-            ft.TextButton('新建空白手账',on_click=blank_book),
+            ft.TextButton(tr('新建空白手账'),on_click=blank_book),
             ft.FilledButton('新建手账',icon=ft.Icons.ADD,on_click=lambda e:creator())])
 
     def book_title(book):
@@ -218,7 +219,7 @@ def open_shelf(page, groups, selected=None):
                 status.value='已移除纸页，记得保存';turn(position['value'])
             page.show_dialog(ft.AlertDialog(modal=True,bgcolor=theme.CARD_BG,
                 title=text('移除当前页？',18),content=text('只移除手账中的这一页，原旅行记录不变。'),
-                actions=[ft.TextButton('取消',on_click=lambda e:page.pop_dialog()),
+                actions=[ft.TextButton(tr('取消'),on_click=lambda e:page.pop_dialog()),
                          ft.TextButton('移除',on_click=confirmed)]))
 
         async def add_photo(e):
@@ -273,7 +274,7 @@ def open_shelf(page, groups, selected=None):
                     ft.Row(wrap=True,controls=[ft.TextButton('前移一页',disabled=i==0,on_click=lambda e:move(-1)),
                         ft.TextButton('后移一页',disabled=i==len(book['pages'])-1,on_click=lambda e:move(1)),
                         ft.TextButton('移除此页',disabled=len(book['pages'])==1,on_click=remove_page)]),
-                    text('照片与图注',15),ft.TextButton('添加照片',icon=ft.Icons.ADD_PHOTO_ALTERNATE_OUTLINED,on_click=add_photo)]
+                    text('照片与图注',15),ft.TextButton(tr('添加照片'),icon=ft.Icons.ADD_PHOTO_ALTERNATE_OUTLINED,on_click=add_photo)]
                 for n,photo in enumerate(item['photos'],1):
                     fields.controls.append(ft.Row(controls=[
                         ft.Image(src=base64.b64decode(photo['image']),width=56,height=50,fit=ft.BoxFit.COVER),
@@ -320,8 +321,8 @@ def open_shelf(page, groups, selected=None):
             def discard(e):after_dialog_closed(page,leave)
             page.show_dialog(ft.AlertDialog(modal=True,bgcolor=theme.CARD_BG,
                 title=text('还有未保存的修改',18),content=text('返回书架前，是否继续编辑并保存？'),
-                actions=[ft.TextButton('放弃修改',on_click=discard),
-                         ft.FilledButton('继续编辑',on_click=lambda e:page.pop_dialog())]))
+                actions=[ft.TextButton(tr('放弃修改'),on_click=discard),
+                         ft.FilledButton(tr('继续编辑'),on_click=lambda e:page.pop_dialog())]))
 
         page_choice.on_select=lambda e:turn(-1 if e.control.value=='cover' else int(e.control.value))
         left=ft.Column(expand=True,controls=[page_choice,fields])

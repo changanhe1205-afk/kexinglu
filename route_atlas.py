@@ -1,4 +1,5 @@
 """Flight and high-speed rail atlas, opened from the travel log."""
+from i18n import tr
 import asyncio
 import math
 import sqlite3
@@ -240,8 +241,8 @@ class RouteAtlas:
             db.delete_route(self.mode,route_id);self.reload();self.new()
         self.page.show_dialog(ft.AlertDialog(modal=True,title=ft.Text('删除这条轨迹？'),
             content=ft.Text('只删除线路，不影响旅行日志和票根。'),actions=[
-                ft.TextButton('取消',on_click=lambda e:self.page.pop_dialog()),
-                ft.FilledButton('删除',on_click=lambda e:after_dialog_closed(self.page,confirm))]))
+                ft.TextButton(tr('取消'),on_click=lambda e:self.page.pop_dialog()),
+                ft.FilledButton(tr('删除'),on_click=lambda e:after_dialog_closed(self.page,confirm))]))
 
     def resize(self,e=None):
         self.v=tile_map.View(*self.dimensions(),self.v.lon,self.v.lat,self.v.zoom)

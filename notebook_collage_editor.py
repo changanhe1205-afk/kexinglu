@@ -1,4 +1,5 @@
 """A draft-only, per-page scrapbook canvas; applying is an explicit action."""
+from i18n import tr
 import asyncio
 from copy import deepcopy
 import flet as ft
@@ -131,5 +132,5 @@ def open_designer(page,item,on_apply):
     page.show_dialog(ft.AlertDialog(modal=True,bgcolor=theme.CARD_BG,title=ft.Text('设计这一页 · 自由拼贴'),
         content=ft.Container(width=width+310,height=width*580/420+42,content=ft.Column(controls=[
             ft.Row(expand=True,vertical_alignment=ft.CrossAxisAlignment.START,spacing=24,controls=[tools,canvas]),notice])),
-        actions=[ft.TextButton('撤销',on_click=undo),ft.TextButton('取消',on_click=lambda e:close(False)),
+        actions=[ft.TextButton(tr('撤销'),on_click=undo),ft.TextButton(tr('取消'),on_click=lambda e:close(False)),
                  ft.FilledButton('应用到这一页',on_click=lambda e:close(True))]))

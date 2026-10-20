@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from app_version import VERSION
 
-REQUIRED = ('客行录.exe', '_internal/certifi/cacert.pem',
+REQUIRED = ('客行录.exe', '_internal/assets/cloud.json', '_internal/certifi/cacert.pem',
             '_internal/base_library.zip', '_internal/python314.dll',
             '_internal/assets/notebook_reader.html',
             '_internal/flet_desktop/app/flet/flet.exe',

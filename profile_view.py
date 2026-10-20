@@ -10,11 +10,13 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import os
 
 import flet as ft
 
+import cloud_view
 import background
 import database
 import food_db
@@ -118,7 +120,7 @@ def build(page: ft.Page, on_theme_change=None,
                controls=[
             theme.brand_mark(62),
             ft.Column(spacing=3, expand=True, controls=[
-                ft.Text("客行录", size=23, weight=ft.FontWeight.W_800,
+                ft.Text(tr("客行录"), size=23, weight=ft.FontWeight.W_800,
                         color=theme.TEXT_MAIN),
                 ft.Text("把走过看过的都收进来 · 内容只留在本机", size=11.5,
                         color=theme.TEXT_SUB),
@@ -215,7 +217,7 @@ def build(page: ft.Page, on_theme_change=None,
     paint_bg()
 
     bg_card = theme.glass_card(
-        head(ft.Icons.WALLPAPER_OUTLINED, "背景图",
+        head(ft.Icons.WALLPAPER_OUTLINED, tr("背景图"),
              "所有页面共用同一张，换完立刻生效", bg_chip),
         bg_row,
         ft.Row(spacing=10, vertical_alignment=ft.CrossAxisAlignment.CENTER,
@@ -245,12 +247,12 @@ def build(page: ft.Page, on_theme_change=None,
     def theme_tile(key: str, palette: dict) -> ft.Container:
         active = theme.THEME_ID == key
         return ft.Container(
-            width=260, padding=12, border_radius=14, tooltip="应用主题：" + palette["name"],
+            width=230, padding=12, border_radius=14, tooltip="应用主题：" + palette["name"],
             bgcolor=theme.CARD_BG_SOFT,
             border=ft.Border.all(1.5 if active else 1, theme.ACCENT if active else theme.LINE),
             on_click=lambda e, k=key: pick_theme(k),
             content=ft.Column(spacing=10, controls=[
-                ft.Container(height=76, border_radius=9, padding=12, bgcolor=palette["bg"],
+                ft.Container(height=58, border_radius=9, padding=12, bgcolor=palette["bg"],
                     content=ft.Row(spacing=10, controls=[
                         ft.Container(width=36, height=50, border_radius=6, bgcolor=palette["card"],
                             content=ft.Column(spacing=5, controls=[
@@ -377,7 +379,7 @@ def build(page: ft.Page, on_theme_change=None,
                         size=11, color=theme.TEXT_FAINT),
             ]),
             actions=[
-                ft.FilledButton("知道了", icon=ft.Icons.CHECK,
+                ft.FilledButton(tr("知道了"), icon=ft.Icons.CHECK,
                                 bgcolor=theme.ACCENT, color=theme.ON_ACCENT,
                                 style=ft.ButtonStyle(
                                     shape=ft.RoundedRectangleBorder(radius=10)),
@@ -418,7 +420,7 @@ def build(page: ft.Page, on_theme_change=None,
                         size=11, color=theme.DANGER if has else theme.TEXT_FAINT),
             ]),
             actions=[
-                ft.TextButton("取消", on_click=lambda e: page.pop_dialog()),
+                ft.TextButton(tr("取消"), on_click=lambda e: page.pop_dialog()),
                 ft.FilledButton("开始复制",
                                 icon=ft.Icons.CONTENT_COPY_OUTLINED,
                                 bgcolor=theme.ACCENT, color=theme.ON_ACCENT,
@@ -448,7 +450,7 @@ def build(page: ft.Page, on_theme_change=None,
     move_btn.on_click = pick_dir
 
     storage_card = theme.glass_card(
-        head(ft.Icons.STORAGE_OUTLINED, "数据存储位置",
+        head(ft.Icons.STORAGE_OUTLINED, tr("数据存储位置"),
              "记录、照片都放在这个文件夹里，可以搬到别的盘"),
         ft.Container(
             padding=13, border_radius=12, bgcolor=theme.CARD_GLASS_SOFT,
@@ -458,7 +460,7 @@ def build(page: ft.Page, on_theme_change=None,
                        controls=[
                     ft.Icon(ft.Icons.FOLDER_OUTLINED, size=16,
                             color=theme.MIST_BLUE_DEEP),
-                    ft.Text("当前位置", size=10.5, color=theme.TEXT_FAINT),
+                    ft.Text(tr("当前位置"), size=10.5, color=theme.TEXT_FAINT),
                     ft.Container(expand=True),
                     env_text,
                 ]),
@@ -467,9 +469,9 @@ def build(page: ft.Page, on_theme_change=None,
             ])),
         ft.Row(spacing=10, controls=[
             move_btn,
-            ft.TextButton("打开文件夹", icon=ft.Icons.OPEN_IN_NEW, height=36,
+            ft.TextButton(tr("打开文件夹"), icon=ft.Icons.OPEN_IN_NEW, height=36,
                           on_click=open_data_dir),
-            ft.TextButton("恢复默认位置", icon=ft.Icons.SETTINGS_BACKUP_RESTORE,
+            ft.TextButton(tr("恢复默认位置"), icon=ft.Icons.SETTINGS_BACKUP_RESTORE,
                           height=36,
                           on_click=lambda e: _do_move(
                               storage.default_data_dir())),
@@ -478,21 +480,31 @@ def build(page: ft.Page, on_theme_change=None,
     )
 
     about_card = theme.glass_card(
-        head(ft.Icons.INFO_OUTLINE, "关于", "客行录 · 本地珍藏"),
-        info_row(ft.Icons.FOLDER_OPEN_OUTLINED, "数据目录",
+        head(ft.Icons.INFO_OUTLINE, tr("关于"), tr("客行录 · 本地珍藏")),
+        info_row(ft.Icons.FOLDER_OPEN_OUTLINED, tr("数据目录"),
                  storage.current_dir(),
-                 ft.TextButton("打开", icon=ft.Icons.OPEN_IN_NEW,
+                 ft.TextButton(tr("打开"), icon=ft.Icons.OPEN_IN_NEW,
                                style=ft.ButtonStyle(color=theme.ACCENT),
                                on_click=open_data_dir)),
-        info_row(ft.Icons.STORAGE_OUTLINED, "已收藏",
+        info_row(ft.Icons.STORAGE_OUTLINED, tr("已收藏"),
                  f"票根 {stats[0][2]} · 食光 {stats[1][2]} · "
                  f"旅行 {stats[2][2]} · 影视 {stats[3][2]}"),
-        ft.Text("所有内容都只存在这台电脑上，不联网、不上传。", size=10.5,
+        ft.Text(tr("未开启云同步时，记录只保存在这台电脑上。"), size=10.5,
                 color=theme.TEXT_FAINT),
         padding=22, spacing=14,
     )
 
     paint_storage()
+
+    from i18n import LANGUAGES
+    import config
+    def change_language(e):
+        config.set('language',e.control.value)
+        if on_theme_change: on_theme_change()
+    language_card=theme.glass_card(ft.Dropdown(
+        label='语言 / Language',value=config.get('language','zh'),
+        options=[ft.DropdownOption(key=code,text=name) for code,name in LANGUAGES.items()],
+        on_select=change_language),padding=22)
 
     body = ft.Container(
         expand=True,
@@ -503,7 +515,7 @@ def build(page: ft.Page, on_theme_change=None,
                 alignment=ft.MainAxisAlignment.CENTER,
                 vertical_alignment=ft.CrossAxisAlignment.START,
                 controls=[ft.Column(width=CONTENT_W, spacing=16,
-                                    controls=[hero, theme_card, bg_card,
+                                    controls=[hero, cloud_view.build(page), language_card, theme_card, bg_card,
                                               storage_card, about_card])])],
         ),
     )

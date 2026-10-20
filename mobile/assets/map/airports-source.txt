@@ -1,0 +1,9 @@
+Airport coordinate source: OurAirports (public domain)
+https://ourairports.com/data/
+https://ourairports.com/help/data-dictionary.html
+https://davidmegginson.github.io/ourairports-data/airports.csv
+
+Bundled subset: 140 airports already offered by the application's airport picker.
+Fetched 2026-10-10. Longitude and latitude are from the published dataset.
+This is a local snapshot for automatic commemorative maps, not navigation.
+Railway positions use the existing city/place table and are labeled approximate.

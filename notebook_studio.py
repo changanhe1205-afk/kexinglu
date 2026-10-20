@@ -1,4 +1,5 @@
 """A full-window, multi-page scrapbook studio with independent document state."""
+from i18n import tr
 import asyncio
 from copy import deepcopy
 from pathlib import Path
@@ -47,7 +48,7 @@ class NotebookStudio:
         self.search=ft.TextField(hint_text='搜索素材',dense=True,text_size=12,prefix_icon=ft.Icons.SEARCH,border_radius=10,
             border_color=theme.LINE,on_change=self.search_materials)
         self.full_button=ft.TextButton('全屏创作',icon=ft.Icons.FULLSCREEN,on_click=self.fullscreen)
-        self.undo_button=ft.IconButton(ft.Icons.UNDO,tooltip='撤销',on_click=lambda e:self.undo())
+        self.undo_button=ft.IconButton(ft.Icons.UNDO,tooltip=tr('撤销'),on_click=lambda e:self.undo())
         self.redo_button=ft.IconButton(ft.Icons.REDO,tooltip='重做',on_click=lambda e:self.undo(True))
         self.zoom_label=ft.Text('',size=11,color=self.muted)
         toolbar=ft.Container(padding=ft.Padding.symmetric(horizontal=16,vertical=10),bgcolor=self.surface,
@@ -374,7 +375,7 @@ class NotebookStudio:
         def remove(m):self.remove_material(m);refresh();self.page.update()
         refresh()
         self.page.show_dialog(ft.AlertDialog(title=ft.Text('我的素材'),content=listing,
-            actions=[ft.TextButton('完成',on_click=lambda e:self.page.pop_dialog())]))
+            actions=[ft.TextButton(tr('完成'),on_click=lambda e:self.page.pop_dialog())]))
 
     def append(self,obj):
         self.checkpoint();self.design['elements'].append(obj);self.selected=len(self.design['elements'])-1
@@ -461,7 +462,7 @@ class NotebookStudio:
             self.page.pop_dialog();self.checkpoint();self.book['pages'].pop(self.index)
             self.changed();self.goto(min(self.index,len(self.book['pages'])-1))
         self.page.show_dialog(ft.AlertDialog(modal=True,title=ft.Text('删除这一页？'),content=ft.Text('只删除手账纸页，原旅行日志不变。'),
-            actions=[ft.TextButton('取消',on_click=lambda e:self.page.pop_dialog()),ft.TextButton('删除',on_click=remove)]))
+            actions=[ft.TextButton(tr('取消'),on_click=lambda e:self.page.pop_dialog()),ft.TextButton(tr('删除'),on_click=remove)]))
 
     def set_paper(self,e):
         self.checkpoint();self.design['paper']=e.control.value;self.changed();self.draw();self.page.update()
@@ -549,7 +550,7 @@ class NotebookStudio:
         def continue_editing(e):after_dialog_closed(self.page,lambda:reset(None))
         self.exit_dialog=ft.AlertDialog(modal=True,title=ft.Text('保存这次创作？'),content=ft.Text('未保存的纸页修改和新导入素材会丢失。'),
             on_dismiss=reset,actions=[
-            ft.TextButton('继续编辑',on_click=continue_editing),ft.TextButton('放弃修改',on_click=discard),
+            ft.TextButton(tr('继续编辑'),on_click=continue_editing),ft.TextButton(tr('放弃修改'),on_click=discard),
             ft.FilledButton('保存并退出',on_click=save_close)])
         self.page.show_dialog(self.exit_dialog)
 

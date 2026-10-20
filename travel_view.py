@@ -13,6 +13,7 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import asyncio
 import math
@@ -32,7 +33,7 @@ from theme import card_shadow, icon_badge
 
 IMG_EXTS = ["png", "jpg", "jpeg", "webp", "bmp"]
 CAROUSEL_SECONDS = 3.6        # 卡片自动翻页间隔
-LEFT_W, RIGHT_W = 260, 326
+LEFT_W, RIGHT_W = 300, 326
 
 _GEN = {"v": 0}               # 每次重建自增，旧的轮播循环自己退出
 
@@ -905,11 +906,11 @@ def build(page: ft.Page) -> ft.Control:
     if not any(getattr(s, "data", None) == "travel_photos" for s in page.services):
         page.services.append(photo_pick)
 
-    title_input = ft.TextField(**FORM_FIELD, label="地点",
+    title_input = ft.TextField(**FORM_FIELD, label=tr("地点"),
                                hint_text="如 西湖 / 鼓浪屿 / 大理")
     city_input = ft.TextField(**FORM_FIELD, label="城市（可不填）",
                               hint_text="如 杭州")
-    date_input = ft.TextField(**FORM_FIELD, label="日期",
+    date_input = ft.TextField(**FORM_FIELD, label=tr("日期"),
                               hint_text="点右边日历选", read_only=True, expand=True)
     note_input = ft.TextField(**FORM_FIELD, label="感想",
                               hint_text="路上的小事、当时的心情…",
@@ -1035,7 +1036,7 @@ def build(page: ft.Page) -> ft.Control:
         from notebook_navigation import after_dialog_closed
         page.show_dialog(ft.AlertDialog(modal=True,title=ft.Text('保留这段未保存的记录？'),
             content=ft.Text('你有尚未保存的文字或照片，可以继续编辑后保存。'),actions=[
-                ft.TextButton('继续编辑',on_click=lambda e:after_dialog_closed(page,lambda:toggle_editor(True))),
+                ft.TextButton(tr('继续编辑'),on_click=lambda e:after_dialog_closed(page,lambda:toggle_editor(True))),
                 ft.TextButton('放弃修改并继续',on_click=lambda e:after_dialog_closed(page,action))]))
 
     def toggle_editor(opened=None):
@@ -1186,7 +1187,7 @@ def build(page: ft.Page) -> ft.Control:
             note_input,
             ft.Row(spacing=8, controls=[
                 ft.FilledButton(
-                    "保存", icon=ft.Icons.SAVE_OUTLINED, expand=True,
+                    tr("保存"), icon=ft.Icons.SAVE_OUTLINED, expand=True,
                     bgcolor=theme.ACCENT, color=theme.ON_ACCENT, height=38, elevation=0,
                     style=ft.ButtonStyle(
                         shape=ft.RoundedRectangleBorder(radius=11)),
@@ -1218,9 +1219,9 @@ def build(page: ft.Page) -> ft.Control:
         padding=ft.Padding.only(left=12, right=12, top=12, bottom=14),
         content=ft.Column(spacing=9, expand=True, controls=[
             ft.Row(spacing=8,controls=[
-                ft.Text('走过的地方',size=17,weight=ft.FontWeight.W_600,color=theme.TEXT_MAIN),
+                ft.Text('足迹地图',size=16,weight=ft.FontWeight.W_600,color=theme.TEXT_MAIN),
                 ft.Container(expand=True),
-                ft.TextButton('旅行手账',icon=ft.Icons.MENU_BOOK_OUTLINED,on_click=lambda e:open_notebooks()),
+                ft.TextButton(tr('旅行手账'),icon=ft.Icons.MENU_BOOK_OUTLINED,on_click=lambda e:open_notebooks()),
                 ft.IconButton(ft.Icons.EDIT_NOTE,tooltip='展开 / 收起记录',on_click=lambda e:toggle_editor()),
                 ft.FilledButton('记录旅程',icon=ft.Icons.ADD,on_click=new_record,
                     bgcolor=theme.ACCENT,color=theme.ON_ACCENT)]),
@@ -1233,7 +1234,7 @@ def build(page: ft.Page) -> ft.Control:
         width=LEFT_W,
         padding=ft.Padding.only(left=14, right=8, top=16, bottom=16),
         content=ft.Column(spacing=11, expand=True, controls=[
-            ft.Text('旅途收藏',size=17,weight=ft.FontWeight.W_600,color=theme.TEXT_MAIN),
+            ft.Text('旅途收藏',size=16,weight=ft.FontWeight.W_600,color=theme.TEXT_MAIN),
             stats_text,
             search_input,
             ft.Divider(height=1,color=theme.LINE),

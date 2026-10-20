@@ -16,6 +16,7 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import asyncio
 from datetime import datetime
@@ -111,10 +112,10 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
                   "秋" if 9 <= n.month <= 11 else "冬")
         clock_text.spans = [
             ft.TextSpan(n.strftime("%H:%M"), style=ft.TextStyle(
-                size=88, weight=ft.FontWeight.W_400, color=theme.HOME_TEXT,
+                size=80, weight=ft.FontWeight.W_400, color=theme.HOME_TEXT,
                 letter_spacing=-4)),
             ft.TextSpan(n.strftime(":%S"), style=ft.TextStyle(
-                size=28, weight=ft.FontWeight.W_400,
+                size=22, weight=ft.FontWeight.W_400,
                 color=theme.HOME_ACCENT, letter_spacing=-1)),
         ]
         date_text.value = f"{n.year}年{n.month}月{n.day}日 {week}"
@@ -196,7 +197,7 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
 
     # --- 切换城市弹窗 ---
     city_field = ft.TextField(
-        label="城市", hint_text="输入城市名，如 杭州", expand=True, height=44,
+        label=tr("城市"), hint_text="输入城市名，如 杭州", expand=True, height=44,
         border_radius=12, text_size=13, color=theme.HOME_TEXT,
         label_style=ft.TextStyle(size=11.5, color=theme.HOME_SUB),
         hint_style=ft.TextStyle(size=11.5, color=theme.HOME_FAINT),
@@ -262,8 +263,8 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
         city_field.on_submit = do_search
         city_dialog.actions = [
             ft.TextButton("自动定位", on_click=use_auto_location),
-            ft.TextButton("取消", on_click=lambda e: page.pop_dialog()),
-            ft.FilledButton("搜索", on_click=do_search),
+            ft.TextButton(tr("取消"), on_click=lambda e: page.pop_dialog()),
+            ft.FilledButton(tr("搜索"), on_click=do_search),
         ]
         page.show_dialog(city_dialog)
 
@@ -305,7 +306,7 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
     # 2) 天气：单独一张（和名言等宽等高，摆在一起才齐）
     weather_card = ft.Container(
         **glass(radius=RADIUS),
-        width=376, height=148,
+        width=376, height=144,
         padding=ft.Padding.symmetric(horizontal=18, vertical=16),
         alignment=ft.Alignment.CENTER_LEFT,
         on_hover=lambda e: _hover(e),
@@ -315,14 +316,14 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
     # 3) 每日一句：单独一张
     quote_card = ft.Container(
         **glass(radius=RADIUS),
-        width=376, height=148,
+        width=376, height=144,
         padding=ft.Padding.symmetric(horizontal=20, vertical=16),
         on_hover=lambda e: _hover(e),
         content=ft.Column(spacing=8, controls=[
             ft.Row(spacing=8, vertical_alignment=ft.CrossAxisAlignment.CENTER,
                    controls=[
                 ft.Icon(ft.Icons.FORMAT_QUOTE, size=17, color=theme.HOME_ACCENT),
-                ft.Text("每日一句", size=11, color=theme.HOME_FAINT),
+                ft.Text(tr("每日一句"), size=11, color=theme.HOME_FAINT),
                 ft.Container(expand=True),
                 pill("换一句", ft.Icons.SHUFFLE, shuffle_quote),
             ]),
@@ -348,11 +349,11 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
                 on_navigate(index)
 
         return ft.Container(
-            padding=ft.Padding.symmetric(horizontal=16, vertical=10),
-            border_radius=14, ink=True, on_click=go,
-            bgcolor="#14FFFFFF",
+            width=180, height=64, padding=ft.Padding.symmetric(horizontal=16, vertical=10),
+            border_radius=16, ink=True, on_click=go,
+            bgcolor=theme.HOME_SURFACE,
             border=ft.Border.all(1, theme.HOME_LINE),
-            on_hover=lambda e: _hover(e, "#14FFFFFF"),
+            on_hover=lambda e: _hover(e),
             content=ft.Row(spacing=8, tight=True,
                            vertical_alignment=ft.CrossAxisAlignment.CENTER,
                            controls=[
@@ -361,7 +362,7 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
                         weight=ft.FontWeight.W_500),
             ]))
 
-    chips_row = ft.Row(spacing=10, wrap=True, run_spacing=10,
+    chips_row = ft.Row(spacing=16, wrap=True, run_spacing=12,
                        alignment=ft.MainAxisAlignment.CENTER,
                        controls=[quick_chip(*q) for q in quick])
 
@@ -369,7 +370,7 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
                    vertical_alignment=ft.CrossAxisAlignment.CENTER,
                    controls=[
         theme.brand_mark(34, theme.HOME_TEXT),
-        ft.Text("客行录", size=14, weight=ft.FontWeight.W_500, color=theme.HOME_TEXT),
+        ft.Text(tr("客行录"), size=14, weight=ft.FontWeight.W_500, color=theme.HOME_TEXT),
     ])
 
     lower = ft.Row(
@@ -377,6 +378,14 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
         alignment=ft.MainAxisAlignment.CENTER,
         vertical_alignment=ft.CrossAxisAlignment.CENTER,
         controls=[weather_card, quote_card])
+
+    def open_books():
+        import travel_db, travel_journal_view
+        groups = {}
+        for log in travel_db.list_logs():
+            name = (log.get('city') or log.get('title') or '未命名地点').strip()
+            groups.setdefault(name, {'key': name, 'name': name, 'logs': []})['logs'].append(log)
+        travel_journal_view.open_shelf(page, list(groups.values()), None)
 
     body = ft.Column(
         spacing=0, tight=True,
@@ -390,6 +399,10 @@ def build(page: ft.Page, on_navigate=None) -> ft.Control:
             lower,
             ft.Container(height=20),
             chips_row,
+            ft.Container(height=14),
+            ft.TextButton(tr('旅行手账'), icon=ft.Icons.MENU_BOOK_OUTLINED,
+                style=ft.ButtonStyle(color=theme.HOME_TEXT),
+                on_click=lambda e: open_books()),
         ])
 
     return ft.Container(

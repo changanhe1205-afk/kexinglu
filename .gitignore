@@ -23,3 +23,23 @@ ai_config.json
 design/
 design_backup/
 _smoke_profile.py
+
+# Mobile build caches and signing material
+.dart_tool/
+.gradle/
+.flutter-plugins*
+local.properties
+key.properties
+*.jks
+*.keystore
+mobile/.metadata
+
+*.p12
+
+# Private weather credentials, generated distribution copies and Sites checkout
+tools/qweather/
+*.pem
+site-public/
+website/downloads/
+website/preview*.png
+website/tools/

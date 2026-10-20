@@ -1,0 +1,1187 @@
+{
+  "首页": {
+    "en": "Home",
+    "ja": "ホーム",
+    "zh-TW": "首頁"
+  },
+  "旅途": {
+    "en": "Journeys",
+    "ja": "旅",
+    "zh-TW": "旅途"
+  },
+  "票夹": {
+    "en": "Tickets",
+    "ja": "チケット",
+    "zh-TW": "票夾"
+  },
+  "收藏": {
+    "en": "Collection",
+    "ja": "コレクション",
+    "zh-TW": "收藏"
+  },
+  "我的": {
+    "en": "Me",
+    "ja": "マイページ",
+    "zh-TW": "我的"
+  },
+  "旅行日志": {
+    "en": "Travel journal",
+    "ja": "旅の記録",
+    "zh-TW": "旅行日誌"
+  },
+  "旅程票根": {
+    "en": "Travel tickets",
+    "ja": "旅のチケット",
+    "zh-TW": "旅程票根"
+  },
+  "食光小记": {
+    "en": "Food journal",
+    "ja": "食の記録",
+    "zh-TW": "食光小記"
+  },
+  "影视收藏": {
+    "en": "Screen diary",
+    "ja": "鑑賞記録",
+    "zh-TW": "影視收藏"
+  },
+  "旅行手账": {
+    "en": "Travel scrapbook",
+    "ja": "旅のスクラップブック",
+    "zh-TW": "旅行手帳"
+  },
+  "设置": {
+    "en": "Settings",
+    "ja": "設定",
+    "zh-TW": "設定"
+  },
+  "系统主题": {
+    "en": "Appearance",
+    "ja": "テーマ",
+    "zh-TW": "系統主題"
+  },
+  "主题、动效与显示": {
+    "en": "Theme, motion and display",
+    "ja": "テーマ・アニメーション・表示",
+    "zh-TW": "主題、動效與顯示"
+  },
+  "关于": {
+    "en": "About",
+    "ja": "このアプリについて",
+    "zh-TW": "關於"
+  },
+  "数据备份": {
+    "en": "Backups",
+    "ja": "バックアップ",
+    "zh-TW": "資料備份"
+  },
+  "导出或导入本机记录": {
+    "en": "Export or import local records",
+    "ja": "端末の記録を書き出す・読み込む",
+    "zh-TW": "匯出或匯入本機記錄"
+  },
+  "账号与同步": {
+    "en": "Account & sync",
+    "ja": "アカウントと同期",
+    "zh-TW": "帳號與同步"
+  },
+  "登录后同步你的旅行与收藏": {
+    "en": "Sign in to sync your journals",
+    "ja": "ログインして記録を同期",
+    "zh-TW": "登入後同步你的旅行與收藏"
+  },
+  "已登录 · 管理同步资料": {
+    "en": "Signed in · Manage sync",
+    "ja": "ログイン済み・同期を管理",
+    "zh-TW": "已登入 · 管理同步資料"
+  },
+  "主题色": {
+    "en": "Theme color",
+    "ja": "テーマカラー",
+    "zh-TW": "主題色"
+  },
+  "背景图": {
+    "en": "Background",
+    "ja": "背景",
+    "zh-TW": "背景圖"
+  },
+  "减少动态效果": {
+    "en": "Reduce motion",
+    "ja": "動きを減らす",
+    "zh-TW": "減少動態效果"
+  },
+  "减少轮播与翻转动画": {
+    "en": "Reduce carousel and flip animations",
+    "ja": "自動再生と反転アニメーションを減らす",
+    "zh-TW": "減少輪播與翻轉動畫"
+  },
+  "编辑资料": {
+    "en": "Edit profile",
+    "ja": "プロフィールを編集",
+    "zh-TW": "編輯資料"
+  },
+  "编辑资料与背景": {
+    "en": "Edit profile & cover",
+    "ja": "プロフィールと背景を編集",
+    "zh-TW": "編輯資料與背景"
+  },
+  "昵称": {
+    "en": "Nickname",
+    "ja": "ニックネーム",
+    "zh-TW": "暱稱"
+  },
+  "个性签名": {
+    "en": "Bio",
+    "ja": "ひとこと",
+    "zh-TW": "個性簽名"
+  },
+  "出生年月日": {
+    "en": "Date of birth",
+    "ja": "生年月日",
+    "zh-TW": "出生年月日"
+  },
+  "性别": {
+    "en": "Gender",
+    "ja": "性別",
+    "zh-TW": "性別"
+  },
+  "未设置": {
+    "en": "Not set",
+    "ja": "未設定",
+    "zh-TW": "未設定"
+  },
+  "保存": {
+    "en": "Save",
+    "ja": "保存",
+    "zh-TW": "儲存"
+  },
+  "保存中": {
+    "en": "Saving…",
+    "ja": "保存中…",
+    "zh-TW": "儲存中"
+  },
+  "取消": {
+    "en": "Cancel",
+    "ja": "キャンセル",
+    "zh-TW": "取消"
+  },
+  "关闭": {
+    "en": "Close",
+    "ja": "閉じる",
+    "zh-TW": "關閉"
+  },
+  "删除": {
+    "en": "Delete",
+    "ja": "削除",
+    "zh-TW": "刪除"
+  },
+  "编辑": {
+    "en": "Edit",
+    "ja": "編集",
+    "zh-TW": "編輯"
+  },
+  "确认": {
+    "en": "Confirm",
+    "ja": "確認",
+    "zh-TW": "確認"
+  },
+  "确定": {
+    "en": "OK",
+    "ja": "OK",
+    "zh-TW": "確定"
+  },
+  "返回": {
+    "en": "Back",
+    "ja": "戻る",
+    "zh-TW": "返回"
+  },
+  "重试": {
+    "en": "Retry",
+    "ja": "再試行",
+    "zh-TW": "重試"
+  },
+  "打开": {
+    "en": "Open",
+    "ja": "開く",
+    "zh-TW": "開啟"
+  },
+  "搜索": {
+    "en": "Search",
+    "ja": "検索",
+    "zh-TW": "搜尋"
+  },
+  "清除": {
+    "en": "Clear",
+    "ja": "クリア",
+    "zh-TW": "清除"
+  },
+  "撤销": {
+    "en": "Undo",
+    "ja": "元に戻す",
+    "zh-TW": "復原"
+  },
+  "继续编辑": {
+    "en": "Keep editing",
+    "ja": "編集を続ける",
+    "zh-TW": "繼續編輯"
+  },
+  "放弃修改": {
+    "en": "Discard changes",
+    "ja": "変更を破棄",
+    "zh-TW": "放棄修改"
+  },
+  "保留这次修改吗？": {
+    "en": "Keep these changes?",
+    "ja": "変更を保存しますか？",
+    "zh-TW": "保留這次修改嗎？"
+  },
+  "放弃后不会修改原来的记录。": {
+    "en": "Discarding leaves the original record unchanged.",
+    "ja": "破棄しても元の記録は変わりません。",
+    "zh-TW": "放棄後不會修改原來的記錄。"
+  },
+  "删除这条记录": {
+    "en": "Delete this record",
+    "ja": "この記録を削除",
+    "zh-TW": "刪除這筆記錄"
+  },
+  "删除这条记录？": {
+    "en": "Delete this record?",
+    "ja": "この記録を削除しますか？",
+    "zh-TW": "刪除這筆記錄？"
+  },
+  "确认后可在底部提示中撤销。": {
+    "en": "You can undo this from the message below.",
+    "ja": "画面下の通知から元に戻せます。",
+    "zh-TW": "確認後可在底部提示中復原。"
+  },
+  "记录已删除": {
+    "en": "Record deleted",
+    "ja": "記録を削除しました",
+    "zh-TW": "記錄已刪除"
+  },
+  "登录": {
+    "en": "Sign in",
+    "ja": "ログイン",
+    "zh-TW": "登入"
+  },
+  "登录账号": {
+    "en": "Sign in",
+    "ja": "ログイン",
+    "zh-TW": "登入帳號"
+  },
+  "管理账号": {
+    "en": "Manage account",
+    "ja": "アカウント管理",
+    "zh-TW": "管理帳號"
+  },
+  "创建账号": {
+    "en": "Create account",
+    "ja": "アカウント作成",
+    "zh-TW": "建立帳號"
+  },
+  "账号密码登录": {
+    "en": "Password sign-in",
+    "ja": "パスワードでログイン",
+    "zh-TW": "帳號密碼登入"
+  },
+  "验证码登录": {
+    "en": "Email code",
+    "ja": "メールコードでログイン",
+    "zh-TW": "驗證碼登入"
+  },
+  "注册邮箱账号": {
+    "en": "Create an email account",
+    "ja": "メールで登録",
+    "zh-TW": "註冊電子郵件帳號"
+  },
+  "邮箱账号": {
+    "en": "Email address",
+    "ja": "メールアドレス",
+    "zh-TW": "電子郵件帳號"
+  },
+  "邮箱": {
+    "en": "Email",
+    "ja": "メール",
+    "zh-TW": "電子郵件"
+  },
+  "密码": {
+    "en": "Password",
+    "ja": "パスワード",
+    "zh-TW": "密碼"
+  },
+  "密码（至少 8 位）": {
+    "en": "Password (8+ characters)",
+    "ja": "パスワード（8文字以上）",
+    "zh-TW": "密碼（至少 8 位）"
+  },
+  "邮件验证码": {
+    "en": "Email code",
+    "ja": "メール認証コード",
+    "zh-TW": "郵件驗證碼"
+  },
+  "发送验证码": {
+    "en": "Send code",
+    "ja": "コードを送信",
+    "zh-TW": "傳送驗證碼"
+  },
+  "退出登录": {
+    "en": "Sign out",
+    "ja": "ログアウト",
+    "zh-TW": "登出"
+  },
+  "登录成功": {
+    "en": "Signed in",
+    "ja": "ログインしました",
+    "zh-TW": "登入成功"
+  },
+  "同步当前资料库": {
+    "en": "Sync library",
+    "ja": "ライブラリを同期",
+    "zh-TW": "同步目前資料庫"
+  },
+  "资料同步": {
+    "en": "Library sync",
+    "ja": "データ同期",
+    "zh-TW": "資料同步"
+  },
+  "确认并同步": {
+    "en": "Confirm & sync",
+    "ja": "確認して同期",
+    "zh-TW": "確認並同步"
+  },
+  "暂不开启": {
+    "en": "Not now",
+    "ja": "後で",
+    "zh-TW": "暫不開啟"
+  },
+  "设置 / 更新密码": {
+    "en": "Set / change password",
+    "ja": "パスワードの設定・変更",
+    "zh-TW": "設定／更新密碼"
+  },
+  "新密码（至少 8 位）": {
+    "en": "New password (8+ characters)",
+    "ja": "新しいパスワード（8文字以上）",
+    "zh-TW": "新密碼（至少 8 位）"
+  },
+  "还没有账号？ 注册": {
+    "en": "New here? Sign up",
+    "ja": "初めての方はこちら",
+    "zh-TW": "還沒有帳號？註冊"
+  },
+  "已有账号？ 登录": {
+    "en": "Already registered? Sign in",
+    "ja": "登録済みの方はこちら",
+    "zh-TW": "已有帳號？登入"
+  },
+  "没收到确认邮件？重发一次": {
+    "en": "Resend confirmation email",
+    "ja": "確認メールを再送信",
+    "zh-TW": "沒收到確認郵件？重新傳送"
+  },
+  "处理中…": {
+    "en": "Working…",
+    "ja": "処理中…",
+    "zh-TW": "處理中…"
+  },
+  "同步处理中…": {
+    "en": "Syncing…",
+    "ja": "同期中…",
+    "zh-TW": "同步處理中…"
+  },
+  "请在浏览器完成授权后返回。": {
+    "en": "Finish sign-in in your browser, then return.",
+    "ja": "ブラウザで認証してから戻ってください。",
+    "zh-TW": "請在瀏覽器完成授權後返回。"
+  },
+  "复制完整结果": {
+    "en": "Copy full results",
+    "ja": "結果をすべてコピー",
+    "zh-TW": "複製完整結果"
+  },
+  "已退出，本机记录保留": {
+    "en": "Signed out. Local records are kept.",
+    "ja": "ログアウトしました。端末の記録は残ります。",
+    "zh-TW": "已登出，本機記錄保留"
+  },
+  "天气": {
+    "en": "Weather",
+    "ja": "天気",
+    "zh-TW": "天氣"
+  },
+  "选择城市": {
+    "en": "Choose city",
+    "ja": "都市を選択",
+    "zh-TW": "選擇城市"
+  },
+  "使用手机定位": {
+    "en": "Use device location",
+    "ja": "現在地を使う",
+    "zh-TW": "使用手機定位"
+  },
+  "定位当地天气": {
+    "en": "Local weather",
+    "ja": "現在地の天気",
+    "zh-TW": "定位當地天氣"
+  },
+  "三日预报": {
+    "en": "3-day forecast",
+    "ja": "3日間の予報",
+    "zh-TW": "三日預報"
+  },
+  "收起预报": {
+    "en": "Hide forecast",
+    "ja": "予報を閉じる",
+    "zh-TW": "收起預報"
+  },
+  "刷新天气": {
+    "en": "Refresh weather",
+    "ja": "天気を更新",
+    "zh-TW": "重新整理天氣"
+  },
+  "权限设置": {
+    "en": "Permissions",
+    "ja": "権限設定",
+    "zh-TW": "權限設定"
+  },
+  "定位设置": {
+    "en": "Location settings",
+    "ja": "位置情報設定",
+    "zh-TW": "定位設定"
+  },
+  "跟随你所在的地方": {
+    "en": "Weather wherever you are",
+    "ja": "今いる場所の天気",
+    "zh-TW": "跟隨你所在的地方"
+  },
+  "每日一句": {
+    "en": "Daily inspiration",
+    "ja": "今日のことば",
+    "zh-TW": "每日一句"
+  },
+  "换一句": {
+    "en": "Another quote",
+    "ja": "別のことば",
+    "zh-TW": "換一句"
+  },
+  "我的足迹": {
+    "en": "My footprints",
+    "ja": "旅の足跡",
+    "zh-TW": "我的足跡"
+  },
+  "飞行轨迹": {
+    "en": "Flight routes",
+    "ja": "飛行ルート",
+    "zh-TW": "飛行軌跡"
+  },
+  "铁路轨迹": {
+    "en": "Rail routes",
+    "ja": "鉄道ルート",
+    "zh-TW": "鐵路軌跡"
+  },
+  "世界地图": {
+    "en": "World map",
+    "ja": "世界地図",
+    "zh-TW": "世界地圖"
+  },
+  "中国视角": {
+    "en": "China view",
+    "ja": "中国を表示",
+    "zh-TW": "中國視角"
+  },
+  "全屏地图": {
+    "en": "Full-screen map",
+    "ja": "全画面地図",
+    "zh-TW": "全螢幕地圖"
+  },
+  "退出全屏地图": {
+    "en": "Close full-screen map",
+    "ja": "全画面を閉じる",
+    "zh-TW": "退出全螢幕地圖"
+  },
+  "放大地图": {
+    "en": "Zoom in",
+    "ja": "拡大",
+    "zh-TW": "放大地圖"
+  },
+  "缩小地图": {
+    "en": "Zoom out",
+    "ja": "縮小",
+    "zh-TW": "縮小地圖"
+  },
+  "复位地图": {
+    "en": "Reset view",
+    "ja": "表示をリセット",
+    "zh-TW": "重設地圖"
+  },
+  "横屏": {
+    "en": "Landscape",
+    "ja": "横向き",
+    "zh-TW": "橫向"
+  },
+  "竖屏": {
+    "en": "Portrait",
+    "ja": "縦向き",
+    "zh-TW": "直向"
+  },
+  "飞机": {
+    "en": "Flights",
+    "ja": "飛行機",
+    "zh-TW": "飛機"
+  },
+  "铁路": {
+    "en": "Rail",
+    "ja": "鉄道",
+    "zh-TW": "鐵路"
+  },
+  "高铁 / 火车": {
+    "en": "Rail",
+    "ja": "高速鉄道・列車",
+    "zh-TW": "高鐵／火車"
+  },
+  "新增机票": {
+    "en": "Add flight ticket",
+    "ja": "航空券を追加",
+    "zh-TW": "新增機票"
+  },
+  "新增铁路票根": {
+    "en": "Add rail ticket",
+    "ja": "鉄道切符を追加",
+    "zh-TW": "新增鐵路票根"
+  },
+  "出发机场": {
+    "en": "Departure airport",
+    "ja": "出発空港",
+    "zh-TW": "出發機場"
+  },
+  "到达机场": {
+    "en": "Arrival airport",
+    "ja": "到着空港",
+    "zh-TW": "抵達機場"
+  },
+  "出发车站": {
+    "en": "Departure station",
+    "ja": "出発駅",
+    "zh-TW": "出發車站"
+  },
+  "到达车站": {
+    "en": "Arrival station",
+    "ja": "到着駅",
+    "zh-TW": "抵達車站"
+  },
+  "航班号": {
+    "en": "Flight number",
+    "ja": "便名",
+    "zh-TW": "航班號"
+  },
+  "车次": {
+    "en": "Train number",
+    "ja": "列車番号",
+    "zh-TW": "車次"
+  },
+  "日期": {
+    "en": "Date",
+    "ja": "日付",
+    "zh-TW": "日期"
+  },
+  "票价": {
+    "en": "Fare",
+    "ja": "運賃",
+    "zh-TW": "票價"
+  },
+  "座位": {
+    "en": "Seat",
+    "ja": "座席",
+    "zh-TW": "座位"
+  },
+  "姓名": {
+    "en": "Name",
+    "ja": "氏名",
+    "zh-TW": "姓名"
+  },
+  "城市": {
+    "en": "City",
+    "ja": "都市",
+    "zh-TW": "城市"
+  },
+  "地点": {
+    "en": "Place",
+    "ja": "場所",
+    "zh-TW": "地點"
+  },
+  "标题": {
+    "en": "Title",
+    "ja": "タイトル",
+    "zh-TW": "標題"
+  },
+  "内容": {
+    "en": "Notes",
+    "ja": "内容",
+    "zh-TW": "內容"
+  },
+  "喜欢程度": {
+    "en": "Rating",
+    "ja": "評価",
+    "zh-TW": "喜歡程度"
+  },
+  "观看感悟": {
+    "en": "Reflections",
+    "ja": "感想",
+    "zh-TW": "觀看感悟"
+  },
+  "食光感想": {
+    "en": "Food notes",
+    "ja": "食の感想",
+    "zh-TW": "食光感想"
+  },
+  "基本信息": {
+    "en": "Details",
+    "ja": "詳細",
+    "zh-TW": "基本資訊"
+  },
+  "轻触空白处翻回封面": {
+    "en": "Tap a blank area to flip back",
+    "ja": "余白をタップして表に戻る",
+    "zh-TW": "輕觸空白處翻回封面"
+  },
+  "从相册选择图片": {
+    "en": "Choose from gallery",
+    "ja": "写真を選択",
+    "zh-TW": "從相簿選擇圖片"
+  },
+  "更换图片": {
+    "en": "Change image",
+    "ja": "写真を変更",
+    "zh-TW": "更換圖片"
+  },
+  "添加照片": {
+    "en": "Add photo",
+    "ja": "写真を追加",
+    "zh-TW": "新增照片"
+  },
+  "导出本地备份": {
+    "en": "Export local backup",
+    "ja": "バックアップを書き出す",
+    "zh-TW": "匯出本機備份"
+  },
+  "从备份导入": {
+    "en": "Import backup",
+    "ja": "バックアップを読み込む",
+    "zh-TW": "從備份匯入"
+  },
+  "生日快乐": {
+    "en": "Happy birthday",
+    "ja": "お誕生日おめでとう",
+    "zh-TW": "生日快樂"
+  },
+  "收下这份祝福": {
+    "en": "Thank you for the wishes",
+    "ja": "ありがとう",
+    "zh-TW": "收下這份祝福"
+  },
+  "轻触烛光，许个愿吧": {
+    "en": "Tap the candles and make a wish",
+    "ja": "ろうそくに触れて願いごとを",
+    "zh-TW": "輕觸燭光，許個願吧"
+  },
+  "收起生日祝福": {
+    "en": "Close birthday wishes",
+    "ja": "お祝いを閉じる",
+    "zh-TW": "收起生日祝福"
+  },
+  "客行录 · 陪你收藏每一岁": {
+    "en": "Waylore · Memories for every year",
+    "ja": "Waylore · 毎年の思い出を一緒に",
+    "zh-TW": "客行錄 · 陪你收藏每一歲"
+  },
+  "心愿已许下": {
+    "en": "Wish made",
+    "ja": "願いを込めました",
+    "zh-TW": "心願已許下"
+  },
+  "愿你的心愿，在新一岁慢慢实现": {
+    "en": "May your wishes come true this year",
+    "ja": "新しい一年に、願いが叶いますように",
+    "zh-TW": "願你的心願，在新一歲慢慢實現"
+  },
+  "客行录": {
+    "en": "Waylore",
+    "ja": "Waylore",
+    "zh-TW": "客行錄"
+  },
+  "知道了": {
+    "en": "Got it",
+    "ja": "わかりました",
+    "zh-TW": "知道了"
+  },
+  "打开文件夹": {
+    "en": "Open folder",
+    "ja": "フォルダーを開く",
+    "zh-TW": "開啟資料夾"
+  },
+  "恢复默认位置": {
+    "en": "Restore default location",
+    "ja": "標準の保存先に戻す",
+    "zh-TW": "恢復預設位置"
+  },
+  "数据存储位置": {
+    "en": "Storage location",
+    "ja": "データ保存先",
+    "zh-TW": "資料儲存位置"
+  },
+  "当前位置": {
+    "en": "Current location",
+    "ja": "現在の場所",
+    "zh-TW": "目前位置"
+  },
+  "数据目录": {
+    "en": "Data folder",
+    "ja": "データフォルダー",
+    "zh-TW": "資料目錄"
+  },
+  "已收藏": {
+    "en": "Collected",
+    "ja": "保存済み",
+    "zh-TW": "已收藏"
+  },
+  "未开启云同步时，记录只保存在这台电脑上。": {
+    "en": "Records stay on this computer until you enable cloud sync.",
+    "ja": "クラウド同期を有効にするまで、記録はこの端末だけに保存されます。",
+    "zh-TW": "未開啟雲端同步時，記錄僅儲存在這台電腦上。"
+  },
+  "上传自己的背景图": {
+    "en": "Upload a cover",
+    "ja": "背景写真を読み込む",
+    "zh-TW": "上傳自己的背景圖"
+  },
+  "个人资料待上传 · 点击重试": {
+    "en": "Profile upload pending · Retry",
+    "ja": "プロフィール未同期・再試行",
+    "zh-TW": "個人資料待上傳 · 點擊重試"
+  },
+  "个性背景": {
+    "en": "Personal cover",
+    "ja": "背景のカスタマイズ",
+    "zh-TW": "個性背景"
+  },
+  "主题未保存，请重试": {
+    "en": "Theme not saved. Please retry.",
+    "ja": "テーマを保存できませんでした。再試行してください。",
+    "zh-TW": "主題未儲存，請重試"
+  },
+  "云端暂不可用，本地资料仍可正常使用。": {
+    "en": "Cloud unavailable. Local records still work.",
+    "ja": "クラウドに接続できません。端末の記録は利用できます。",
+    "zh-TW": "雲端暫不可用，本機資料仍可正常使用。"
+  },
+  "仅用于获取当地天气，不记录移动轨迹。": {
+    "en": "Used for local weather only, without tracking your movements.",
+    "ja": "現在地の天気のみに使用し、移動履歴は記録しません。",
+    "zh-TW": "僅用於取得當地天氣，不記錄移動軌跡。"
+  },
+  "从哪里开始这一册？": {
+    "en": "Where will this book begin?",
+    "ja": "どこからこの一冊を始めますか？",
+    "zh-TW": "從哪裡開始這一冊？"
+  },
+  "从相册选择一张照片": {
+    "en": "Choose a photo",
+    "ja": "写真を1枚選択",
+    "zh-TW": "從相簿選擇一張照片"
+  },
+  "保存后自动生成地图轨迹。票根仅供纪念收藏。": {
+    "en": "Saving creates a route. Tickets are keepsakes only.",
+    "ja": "保存するとルートを生成します。チケットは記念用です。",
+    "zh-TW": "儲存後自動產生地圖軌跡。票根僅供紀念收藏。"
+  },
+  "保存失败，请重试，编辑内容仍保留": {
+    "en": "Save failed. Your edits are kept; please retry.",
+    "ja": "保存できませんでした。編集内容は保持されています。",
+    "zh-TW": "儲存失敗，請重試，編輯內容仍保留"
+  },
+  "保存未成功，内容仍保留在编辑器中。": {
+    "en": "Not saved. Your content remains in the editor.",
+    "ja": "保存できませんでした。編集内容は残っています。",
+    "zh-TW": "儲存未成功，內容仍保留在編輯器中。"
+  },
+  "保存未成功，请重试；原记录未被删除。": {
+    "en": "Save failed. The original record is safe.",
+    "ja": "保存に失敗しました。元の記録は残っています。",
+    "zh-TW": "儲存未成功，請重試；原記錄未被刪除。"
+  },
+  "保存退出": {
+    "en": "Save & close",
+    "ja": "保存して閉じる",
+    "zh-TW": "儲存退出"
+  },
+  "全部旅行汇总": {
+    "en": "All journeys",
+    "ja": "すべての旅",
+    "zh-TW": "全部旅行彙總"
+  },
+  "关于数据与隐私": {
+    "en": "Data & privacy",
+    "ja": "データとプライバシー",
+    "zh-TW": "關於資料與隱私"
+  },
+  "删除失败，记录仍保留": {
+    "en": "Delete failed. Record kept.",
+    "ja": "削除できませんでした。記録は残っています。",
+    "zh-TW": "刪除失敗，記錄仍保留"
+  },
+  "删除失败，请重试。": {
+    "en": "Delete failed. Please retry.",
+    "ja": "削除できませんでした。再試行してください。",
+    "zh-TW": "刪除失敗，請重試。"
+  },
+  "删除未成功，原记录已保留。": {
+    "en": "Not deleted. Original record kept.",
+    "ja": "削除できませんでした。元の記録は残っています。",
+    "zh-TW": "刪除未成功，原記錄已保留。"
+  },
+  "删除这张票根？": {
+    "en": "Delete this ticket?",
+    "ja": "このチケットを削除しますか？",
+    "zh-TW": "刪除這張票根？"
+  },
+  "删除这条收藏？": {
+    "en": "Delete this item?",
+    "ja": "この項目を削除しますか？",
+    "zh-TW": "刪除這筆收藏？"
+  },
+  "加页": {
+    "en": "Add page",
+    "ja": "ページを追加",
+    "zh-TW": "新增頁面"
+  },
+  "同步当前资料库？": {
+    "en": "Sync this library?",
+    "ja": "このライブラリを同期しますか？",
+    "zh-TW": "同步目前資料庫？"
+  },
+  "同步未完成，资料仍保留在本机": {
+    "en": "Sync incomplete. Local data is safe.",
+    "ja": "同期は未完了です。端末のデータは残っています。",
+    "zh-TW": "同步未完成，資料仍保留在本機"
+  },
+  "图片": {
+    "en": "Image",
+    "ja": "画像",
+    "zh-TW": "圖片"
+  },
+  "图片导入失败，请重新选择": {
+    "en": "Import failed. Choose the image again.",
+    "ja": "読み込みに失敗しました。画像を選び直してください。",
+    "zh-TW": "圖片匯入失敗，請重新選擇"
+  },
+  "图片暂不可用，点击重新选择": {
+    "en": "Image unavailable. Tap to choose another.",
+    "ja": "画像が見つかりません。選び直してください。",
+    "zh-TW": "圖片暫不可用，點擊重新選擇"
+  },
+  "图片未导入，可重新选择相册图片。": {
+    "en": "Image not imported. Try choosing it again.",
+    "ja": "画像を読み込めませんでした。もう一度選択してください。",
+    "zh-TW": "圖片未匯入，可重新選擇相簿圖片。"
+  },
+  "图片未导入，请重试。": {
+    "en": "Image not imported. Please retry.",
+    "ja": "画像を読み込めませんでした。再試行してください。",
+    "zh-TW": "圖片未匯入，請重試。"
+  },
+  "地图可拖动 · 双指缩放 · 点右下角全屏": {
+    "en": "Drag to pan · Pinch to zoom · Full screen at bottom right",
+    "ja": "ドラッグで移動・ピンチで拡大・右下で全画面",
+    "zh-TW": "拖曳移動 · 雙指縮放 · 點右下角全螢幕"
+  },
+  "头像": {
+    "en": "Avatar",
+    "ja": "プロフィール写真",
+    "zh-TW": "頭像"
+  },
+  "完成": {
+    "en": "Done",
+    "ja": "完了",
+    "zh-TW": "完成"
+  },
+  "完整结果已复制": {
+    "en": "Full results copied",
+    "ja": "結果をコピーしました",
+    "zh-TW": "完整結果已複製"
+  },
+  "客 行 录": {
+    "en": "Waylore",
+    "ja": "Waylore",
+    "zh-TW": "客 行 錄"
+  },
+  "客行录 / 旅途珍藏": {
+    "en": "Waylore / Travel keepsakes",
+    "ja": "Waylore / 旅の宝物",
+    "zh-TW": "客行錄／旅途珍藏"
+  },
+  "客行录 · 旅人档案": {
+    "en": "Waylore · Traveler profile",
+    "ja": "Waylore · 旅人プロフィール",
+    "zh-TW": "客行錄 · 旅人檔案"
+  },
+  "客行录 · 本地珍藏": {
+    "en": "Waylore · Local keepsakes",
+    "ja": "Waylore · 端末の宝物",
+    "zh-TW": "客行錄 · 本機珍藏"
+  },
+  "密码登录": {
+    "en": "Password",
+    "ja": "パスワード",
+    "zh-TW": "密碼登入"
+  },
+  "导入": {
+    "en": "Import",
+    "ja": "読み込む",
+    "zh-TW": "匯入"
+  },
+  "导入这份备份？": {
+    "en": "Import this backup?",
+    "ja": "このバックアップを読み込みますか？",
+    "zh-TW": "匯入這份備份？"
+  },
+  "导出未成功，请确认图片仍可读取后重试。": {
+    "en": "Export failed. Check that your images are accessible.",
+    "ja": "書き出せませんでした。画像が読み取れるか確認してください。",
+    "zh-TW": "匯出未成功，請確認圖片仍可讀取後重試。"
+  },
+  "左右滑动收藏 · 点击翻看票根": {
+    "en": "Swipe to browse · Tap to flip",
+    "ja": "スワイプで選択・タップで裏面",
+    "zh-TW": "左右滑動收藏 · 點擊翻看票根"
+  },
+  "已找回刚才选择的图片": {
+    "en": "Selected image recovered",
+    "ja": "選択した画像を復元しました",
+    "zh-TW": "已找回剛才選擇的圖片"
+  },
+  "开始记录": {
+    "en": "Start a memory",
+    "ja": "記録を始める",
+    "zh-TW": "開始記錄"
+  },
+  "忘记密码？": {
+    "en": "Forgot password?",
+    "ja": "パスワードを忘れた場合",
+    "zh-TW": "忘記密碼？"
+  },
+  "恢复失败，请重试": {
+    "en": "Restore failed. Please retry.",
+    "ja": "復元できませんでした。再試行してください。",
+    "zh-TW": "恢復失敗，請重試"
+  },
+  "恢复失败，请重试。": {
+    "en": "Restore failed. Please retry.",
+    "ja": "復元できませんでした。再試行してください。",
+    "zh-TW": "恢復失敗，請重試。"
+  },
+  "手账主题": {
+    "en": "Scrapbook theme",
+    "ja": "手帳のテーマ",
+    "zh-TW": "手帳主題"
+  },
+  "把一路的页码装订成册": {
+    "en": "Bind your journeys into a book",
+    "ja": "旅のページを一冊に",
+    "zh-TW": "把一路的頁碼裝訂成冊"
+  },
+  "把旅途与日常收进书里。": {
+    "en": "Keep your journeys and everyday stories.",
+    "ja": "旅と日常を一冊に。",
+    "zh-TW": "把旅途與日常收進書裡。"
+  },
+  "把照片、文字和贴纸排成书页，像一本书一样翻阅": {
+    "en": "Arrange photos, words and stickers into pages to flip through.",
+    "ja": "写真、文字、ステッカーを並べて、ページをめくろう。",
+    "zh-TW": "把照片、文字和貼紙排成書頁，像一本書一樣翻閱"
+  },
+  "把记录连同照片收进一份文件，需要时再导回。": {
+    "en": "Back up records and photos to a file you can restore later.",
+    "ja": "記録と写真をファイルにまとめ、必要なときに復元できます。",
+    "zh-TW": "把記錄連同照片收進一份檔案，需要時再匯回。"
+  },
+  "收藏已删除": {
+    "en": "Item deleted",
+    "ja": "削除しました",
+    "zh-TW": "收藏已刪除"
+  },
+  "放弃修改会保留之前保存的原稿。": {
+    "en": "Discarding keeps the previously saved version.",
+    "ja": "変更を破棄すると、前回の保存内容が残ります。",
+    "zh-TW": "放棄修改會保留之前儲存的原稿。"
+  },
+  "文字": {
+    "en": "Text",
+    "ja": "テキスト",
+    "zh-TW": "文字"
+  },
+  "新建空白手账": {
+    "en": "New blank scrapbook",
+    "ja": "空白の手帳を作成",
+    "zh-TW": "新增空白手帳"
+  },
+  "更换背景": {
+    "en": "Change cover",
+    "ja": "背景を変更",
+    "zh-TW": "更換背景"
+  },
+  "更新密码": {
+    "en": "Update password",
+    "ja": "パスワードを変更",
+    "zh-TW": "更新密碼"
+  },
+  "查看完整结果": {
+    "en": "View full results",
+    "ja": "結果をすべて表示",
+    "zh-TW": "查看完整結果"
+  },
+  "每一页都由你自由设计": {
+    "en": "Make every page your own",
+    "ja": "すべてのページを自由に",
+    "zh-TW": "每一頁都由你自由設計"
+  },
+  "照片待下载，请在账号与同步中重试": {
+    "en": "Photo pending. Retry in Account & sync.",
+    "ja": "写真は未取得です。アカウントと同期から再試行してください。",
+    "zh-TW": "照片待下載，請在帳號與同步中重試"
+  },
+  "珍藏": {
+    "en": "Keepsakes",
+    "ja": "宝物",
+    "zh-TW": "珍藏"
+  },
+  "纸页之间，都是你留下的片刻。": {
+    "en": "Your moments, between the pages.",
+    "ja": "ページの間に、あなたの思い出を。",
+    "zh-TW": "紙頁之間，都是你留下的片刻。"
+  },
+  "编辑票根": {
+    "en": "Edit ticket",
+    "ja": "チケットを編集",
+    "zh-TW": "編輯票根"
+  },
+  "记录地点、票根、食光、影视与手账。": {
+    "en": "Places, tickets, meals, films and scrapbooks.",
+    "ja": "場所、チケット、食事、映画、手帳を記録。",
+    "zh-TW": "記錄地點、票根、食光、影視與手帳。"
+  },
+  "设置未保存，请重试": {
+    "en": "Settings not saved. Please retry.",
+    "ja": "設定を保存できませんでした。再試行してください。",
+    "zh-TW": "設定未儲存，請重試"
+  },
+  "账号安全": {
+    "en": "Account security",
+    "ja": "アカウントの安全性",
+    "zh-TW": "帳號安全"
+  },
+  "资料保存在本机，登录后会自动同步到你的账号。": {
+    "en": "Profile saved locally and synced to your account when signed in.",
+    "ja": "プロフィールは端末に保存され、ログイン後に同期されます。",
+    "zh-TW": "資料儲存在本機，登入後會自動同步到你的帳號。"
+  },
+  "资料保留在本机，登录后可手动同步。": {
+    "en": "Records stay local. Sign in to sync manually.",
+    "ja": "記録は端末に保存され、ログイン後に手動で同期できます。",
+    "zh-TW": "資料保留在本機，登入後可手動同步。"
+  },
+  "资料只保存在这台设备，登录后可手动同步。": {
+    "en": "Saved on this device. Sign in for optional sync.",
+    "ja": "この端末に保存されています。ログインすると同期できます。",
+    "zh-TW": "資料僅儲存在這台裝置，登入後可手動同步。"
+  },
+  "轻点或左右滑动翻看背面": {
+    "en": "Tap or swipe to see the back",
+    "ja": "タップかスワイプで裏面を見る",
+    "zh-TW": "輕點或左右滑動翻看背面"
+  },
+  "轻触翻面查看感悟 · 左右滑动切换": {
+    "en": "Tap for reflections · Swipe to browse",
+    "ja": "タップで感想・スワイプで切り替え",
+    "zh-TW": "輕觸翻面查看感悟 · 左右滑動切換"
+  },
+  "输入城市或区县名称": {
+    "en": "Enter a city or district",
+    "ja": "都市・地域名を入力",
+    "zh-TW": "輸入城市或區縣名稱"
+  },
+  "这一页，保存下来吗？": {
+    "en": "Save this page?",
+    "ja": "このページを保存しますか？",
+    "zh-TW": "這一頁，儲存下來嗎？"
+  },
+  "选一个喜欢的配色，立即生效并记住。": {
+    "en": "Choose a palette. Changes apply immediately.",
+    "ja": "お好きな配色を選ぶと、すぐに反映されます。",
+    "zh-TW": "選一個喜歡的配色，立即生效並記住。"
+  },
+  "选一个纸色，整本手账都会跟着换。": {
+    "en": "Choose a paper color for the whole book.",
+    "ja": "手帳全体の紙の色を選択。",
+    "zh-TW": "選一個紙色，整本手帳都會跟著換。"
+  },
+  "选一张预设，或从相册上传自己的照片。": {
+    "en": "Choose a preset or a photo from your gallery.",
+    "ja": "プリセットまたは自分の写真を選択。",
+    "zh-TW": "選一張預設，或從相簿上傳自己的照片。"
+  },
+  "选择天气城市": {
+    "en": "Weather location",
+    "ja": "天気の場所",
+    "zh-TW": "選擇天氣城市"
+  },
+  "选择头像": {
+    "en": "Choose avatar",
+    "ja": "プロフィール写真を選択",
+    "zh-TW": "選擇頭像"
+  },
+  "重试，不清除数据": {
+    "en": "Retry without clearing data",
+    "ja": "データを消さずに再試行",
+    "zh-TW": "重試，不清除資料"
+  },
+  "晴": {
+    "en": "Clear",
+    "ja": "晴れ",
+    "zh-TW": "晴"
+  },
+  "多云": {
+    "en": "Partly cloudy",
+    "ja": "晴れ時々曇り",
+    "zh-TW": "多雲"
+  },
+  "阴": {
+    "en": "Overcast",
+    "ja": "曇り",
+    "zh-TW": "陰"
+  },
+  "雨": {
+    "en": "Rain",
+    "ja": "雨",
+    "zh-TW": "雨"
+  },
+  "雪": {
+    "en": "Snow",
+    "ja": "雪",
+    "zh-TW": "雪"
+  },
+  "雾": {
+    "en": "Fog",
+    "ja": "霧",
+    "zh-TW": "霧"
+  },
+  "毛毛雨": {
+    "en": "Drizzle",
+    "ja": "霧雨",
+    "zh-TW": "毛毛雨"
+  },
+  "雷雨": {
+    "en": "Thunderstorm",
+    "ja": "雷雨",
+    "zh-TW": "雷雨"
+  }
+}

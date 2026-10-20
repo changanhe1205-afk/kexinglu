@@ -1,0 +1,6 @@
+Simplified land geometry: Natural Earth, public domain.
+https://www.naturalearthdata.com/about/terms-of-use/
+https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_land.geojson
+Fetched 2026-10-10. Exterior rings extracted, coordinates rounded to 5 decimals.
+Rendered locally as vector paths; no online tile dependency.
+China province outlines reuse the existing assets/map/china.json dataset.

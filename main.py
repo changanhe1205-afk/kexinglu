@@ -9,6 +9,7 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import os
 import sys
@@ -70,6 +71,7 @@ def main(page: ft.Page) -> None:
 
     current: dict = {"index": 0}          # 当前页序号
     travel_cache = {}
+    page.invalidate_cloud_views = travel_cache.clear
     content = AnimatedSwitcher(           # 内容区：切页时淡入淡出
         ft.Container(expand=True),
         expand=True, transition=AnimatedSwitcherTransition.FADE,
@@ -194,6 +196,8 @@ def main(page: ft.Page) -> None:
             1, "#3DFFFFFF" if dark else theme.with_alpha(accent, 0.45))
 
         for idx, item in nav_items.items():
+            item.tooltip=tr(PAGES[idx][0])
+            item.content.controls[1].value=tr(PAGES[idx][0])
             on = idx == current["index"]
             hover = nav_hover.get(idx, False)
             if on:
@@ -307,7 +311,7 @@ def main(page: ft.Page) -> None:
         _win_btn("close", ft.Icons.CLOSE, do_close, close=True),
     ]
 
-    brand_label = ft.Text("客行录", size=12, weight=ft.FontWeight.W_600)
+    brand_label = ft.Text(tr("客行录"), size=12, weight=ft.FontWeight.W_600)
     brand_icon = theme.brand_mark(22)
     title_brand = ft.Row(spacing=8, controls=[brand_icon, brand_label])
     title_strip = ft.WindowDragArea(
@@ -334,9 +338,9 @@ def main(page: ft.Page) -> None:
 
 
     bar_bg = ft.Container(
-        height=98, bgcolor="#00000000",   # 透明留白让导航形成独立浮岛
+        height=86, bgcolor="#00000000",   # 透明留白让导航形成独立浮岛
         alignment=ft.Alignment.CENTER,
-        padding=ft.Padding.only(left=24, right=24, bottom=16, top=10),
+        padding=ft.Padding.only(left=24, right=24, bottom=10, top=6),
         content=dock,
     )
 

@@ -1,0 +1,5 @@
+Wikidata structured data (CC0), retrieved 2026-10-11.
+https://www.wikidata.org/wiki/Wikidata:Licensing
+Query: SELECT DISTINCT ?s ?sLabel ?coord WHERE { ?s wdt:P17 wd:Q148; wdt:P31/wdt:P279* wd:Q55488; wdt:P625 ?coord. FILTER NOT EXISTS { ?s wdt:P31/wdt:P279* wd:Q928830 } SERVICE wikibase:label { bd:serviceParam wikibase:language "zh". } }
+Only exact matches against STATIONS_12306 (strip final 站). Conflicting coordinates spanning >0.005 degrees rejected. source is Wikidata entity ID. Offline schematic station points, not navigational measurements.
+Count: 2917

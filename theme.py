@@ -213,15 +213,15 @@ def _apply(preset: str, accent: str | None = None) -> None:
                   SHADOW="#24000000" if dark else "#120F172A",
                   SHADOW_DEEP="#48000000" if dark else "#200F172A",
                   STAR_OFF=p["line"], SOFT_LEMON="#D5AF61", SEARCH_HIT="#E6B47A" if dark else "#9B652C",
-                  HOME_BG=p["home"], HOME_BACKGROUND=p["background"], HOME_TEXT="#F5F7FB",
-                  HOME_SUB="#CCD3DE", HOME_FAINT="#B7C2D2",
-                  HOME_ACCENT=mix(ac, "#FFFFFF", .55),
-                  HOME_SURFACE=with_alpha(p["home"], .55),
-                  HOME_SURFACE_SOFT=with_alpha(p["home"], .40),
-                  HOME_HOVER=with_alpha(mix(ac, p["home"], .28), .70),
-                  HOME_LINE="#30FFFFFF",
-                  HOME_SHADE=[with_alpha(p["home"], .30), with_alpha(p["home"], .50)],
-                  DOCK_HOME=with_alpha(p["home"], .60))
+                  HOME_BG=p["bg"], HOME_BACKGROUND=p["background"] if dark else "assets/backgrounds/lakeside.png", HOME_TEXT=p["text"],
+                  HOME_SUB=p["sub"], HOME_FAINT=p["sub"],
+                  HOME_ACCENT=ac,
+                  HOME_SURFACE=with_alpha(p["card"], .78),
+                  HOME_SURFACE_SOFT=with_alpha(p["card"], .65),
+                  HOME_HOVER=with_alpha(p["soft"], .88),
+                  HOME_LINE=with_alpha(p["line"], .75),
+                  HOME_SHADE=[with_alpha(p["bg"], .20 if not dark else .65), with_alpha(p["bg"], .60 if not dark else .85)],
+                  DOCK_HOME=with_alpha(p["card"], .80))
     # 功能色保留语义，浅底跟随当前表面，深色模式不留下浅色块。
     for name, color in {"BLUSH_PINK":"#BA758B", "MINT_GREEN":"#579477",
                         "LAVENDER":"#9280B4", "APRICOT":"#BB8A56", "SKY_CYAN":"#578B9C",
@@ -383,12 +383,12 @@ def app_theme() -> ft.Theme:
 def module_frame(title: str, subtitle: str, icon, body: ft.Control) -> ft.Container:
     """模块共用的页眉与纸白工作区，保留内部各自的完整业务交互。"""
     return ft.Container(
-        expand=True, padding=ft.Padding.only(left=22, right=22, top=8, bottom=8),
-        content=ft.Column(spacing=16, expand=True, controls=[
+        expand=True, padding=ft.Padding.only(left=16, right=16, top=8, bottom=8),
+        content=ft.Column(spacing=12, expand=True, controls=[
             ft.Row(spacing=12, controls=[
-                icon_badge(icon, 42, with_alpha(ACCENT, .10), ACCENT, 21),
+                icon_badge(icon, 36, with_alpha(ACCENT, .08), ACCENT, 19),
                 ft.Column(spacing=3, controls=[
-                    ft.Text(title, size=23, weight=ft.FontWeight.W_600, color=TEXT_MAIN),
+                    ft.Text(title, size=22, weight=ft.FontWeight.W_600, color=TEXT_MAIN),
                     ft.Text(subtitle, size=12, color=TEXT_SUB),
                 ]),
             ]),

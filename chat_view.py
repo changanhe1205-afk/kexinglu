@@ -13,6 +13,7 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import math
 import os
@@ -597,7 +598,7 @@ def build(page: ft.Page) -> ft.Control:
                             ),
                             on_click=lambda e: run_search(),
                         ),
-                        ft.TextButton("清除", height=34,
+                        ft.TextButton(tr("清除"), height=34,
                                       on_click=lambda e: reset_search_state()),
                     ],
                 ),
@@ -1316,11 +1317,11 @@ def build(page: ft.Page) -> ft.Control:
                                         max_lines=1, overflow=ft.TextOverflow.ELLIPSIS),
                                 ft.IconButton(ft.Icons.EDIT_OUTLINED, icon_size=14,
                                               icon_color=theme.MIST_BLUE_DEEP, width=25, height=25,
-                                              padding=0, tooltip="编辑", data=msg["id"],
+                                              padding=0, tooltip=tr("编辑"), data=msg["id"],
                                               on_click=lambda e: edit_message(e.control.data)),
                                 ft.IconButton(ft.Icons.DELETE_OUTLINE, icon_size=14,
                                               icon_color=theme.DANGER, width=25, height=25,
-                                              padding=0, tooltip="删除", data=msg["id"],
+                                              padding=0, tooltip=tr("删除"), data=msg["id"],
                                               on_click=lambda e: delete_message(e.control.data)),
                             ]),
                         ]),
@@ -1524,8 +1525,8 @@ def build(page: ft.Page) -> ft.Control:
                 ]),
             ),
             actions=[
-                ft.TextButton("取消", on_click=lambda e: close_dialog()),
-                ft.FilledButton("导入", icon=ft.Icons.FILE_DOWNLOAD_OUTLINED,
+                ft.TextButton(tr("取消"), on_click=lambda e: close_dialog()),
+                ft.FilledButton(tr("导入"), icon=ft.Icons.FILE_DOWNLOAD_OUTLINED,
                                 bgcolor=theme.MIST_BLUE, color="#FFFFFF", elevation=0,
                                 style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)),
                                 on_click=do_import),

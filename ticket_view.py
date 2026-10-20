@@ -14,6 +14,7 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import asyncio
 import os
@@ -738,7 +739,7 @@ def build(page: ft.Page) -> ft.Control:
             from notebook_navigation import after_dialog_closed
             page.show_dialog(ft.AlertDialog(modal=True,title=ft.Text('当前票根尚未保存'),
                 content=ft.Text('继续编辑，或放弃修改后查看另一张票根。'),actions=[
-                    ft.TextButton('继续编辑',on_click=lambda e:page.pop_dialog()),
+                    ft.TextButton(tr('继续编辑'),on_click=lambda e:page.pop_dialog()),
                     ft.TextButton('放弃修改并查看',on_click=lambda e:after_dialog_closed(page,lambda:open_ticket(ticket_id)))]))
             return
         if ticket_id == current['id'] and preview_state['draft']:
@@ -871,7 +872,7 @@ def build(page: ft.Page) -> ft.Control:
         page.show_dialog(ft.AlertDialog(
             bgcolor=theme.CARD_BG, title=ft.Text("票面预览", color=theme.TEXT_MAIN),
             content=make_pass(t, back=flip_state["back"], large=True),
-            actions=[ft.TextButton("关闭", on_click=lambda e: page.pop_dialog())]))
+            actions=[ft.TextButton(tr("关闭"), on_click=lambda e: page.pop_dialog())]))
 
     def show_source(e=None) -> None:
         t = preview_ticket() or {}
@@ -1003,7 +1004,7 @@ def build(page: ft.Page) -> ft.Control:
                 search, count_text, results,
             ]),
             actions=[
-                ft.TextButton("取消", on_click=lambda e: page.pop_dialog()),
+                ft.TextButton(tr("取消"), on_click=lambda e: page.pop_dialog()),
                 ft.TextButton("就用我输入的", icon=ft.Icons.KEYBOARD,
                               on_click=use_typed),
             ],
@@ -1422,7 +1423,7 @@ def build(page: ft.Page) -> ft.Control:
             ]),
             ft.Row(spacing=8, controls=[
                 save_action,
-                ft.TextButton("删除", icon=ft.Icons.DELETE_OUTLINE, height=38,
+                ft.TextButton(tr("删除"), icon=ft.Icons.DELETE_OUTLINE, height=38,
                               style=ft.ButtonStyle(color=theme.DANGER),
                               on_click=remove_ticket),
             ]),
@@ -1497,10 +1498,10 @@ def build(page: ft.Page) -> ft.Control:
             ),
             category_bar,
             ft.Row(spacing=8,controls=[
-                ft.FilledButton('新增机票',icon=ft.Icons.FLIGHT_TAKEOFF,expand=True,height=44,
+                ft.FilledButton(tr('新增机票'),icon=ft.Icons.FLIGHT_TAKEOFF,expand=True,height=44,
                     on_click=lambda e:new_ticket('飞机'),bgcolor=theme.ACCENT,color=theme.ON_ACCENT,
                     style=ft.ButtonStyle(padding=8,text_style=ft.TextStyle(size=11.5),shape=ft.RoundedRectangleBorder(radius=12))),
-                ft.FilledButton('新增铁路票根',icon=ft.Icons.TRAIN,expand=True,height=44,
+                ft.FilledButton(tr('新增铁路票根'),icon=ft.Icons.TRAIN,expand=True,height=44,
                     on_click=lambda e:new_ticket('高铁'),bgcolor=theme.ACCENT,color=theme.ON_ACCENT,
                     style=ft.ButtonStyle(padding=8,text_style=ft.TextStyle(size=11.5),shape=ft.RoundedRectangleBorder(radius=12)))]),
             ticket_list,

@@ -13,6 +13,7 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import os
 import shutil
@@ -226,7 +227,7 @@ def build(page: ft.Page) -> ft.Control:
 
     name_input = ft.TextField(**FORM_FIELD, label="名称", hint_text="如 生椰拿铁 / 阿婆的红烧肉")
     place_input = ft.TextField(**FORM_FIELD, label="店铺 / 地点", hint_text="在哪里吃到")
-    date_input = ft.TextField(**FORM_FIELD, label="日期", hint_text="点击右侧日历选择",
+    date_input = ft.TextField(**FORM_FIELD, label=tr("日期"), hint_text="点击右侧日历选择",
                               read_only=True)
     price_input = ft.TextField(**FORM_FIELD, label="价格", hint_text="如 18 / 人均 60")
     note_input = ft.TextField(**FORM_FIELD, label="感想", hint_text="味道怎么样、和谁一起…",
@@ -375,7 +376,7 @@ def build(page: ft.Page) -> ft.Control:
                     bgcolor=theme.ACCENT, color=theme.ON_ACCENT, height=38, elevation=0,
                     style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=11)),
                     on_click=lambda e: save_food()),
-                ft.TextButton("删除", icon=ft.Icons.DELETE_OUTLINE, height=38,
+                ft.TextButton(tr("删除"), icon=ft.Icons.DELETE_OUTLINE, height=38,
                               style=ft.ButtonStyle(color=theme.DANGER),
                               on_click=remove_food),
             ]),

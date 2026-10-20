@@ -6,6 +6,7 @@
 """
 
 from __future__ import annotations
+from i18n import tr
 
 import os
 import asyncio
@@ -130,13 +131,13 @@ def build_card(movie: dict, on_edit, on_delete) -> ft.Container:
                                     ),
                                     ft.IconButton(
                                         ft.Icons.EDIT_OUTLINED, icon_size=18,
-                                        icon_color=theme.MIST_BLUE_DEEP, tooltip="编辑",
+                                        icon_color=theme.MIST_BLUE_DEEP, tooltip=tr("编辑"),
                                         width=34, height=34, padding=0,
                                         data=movie["id"], on_click=lambda e: on_edit(e.control.data),
                                     ),
                                     ft.IconButton(
                                         ft.Icons.DELETE_OUTLINE, icon_size=18,
-                                        icon_color="#D98C8C", tooltip="删除",
+                                        icon_color="#D98C8C", tooltip=tr("删除"),
                                         width=34, height=34, padding=0,
                                         data=movie["id"], on_click=lambda e: on_delete(e.control.data),
                                     ),
@@ -454,9 +455,9 @@ def build(page: ft.Page) -> ft.Control:
                 ),
             ),
             actions=[
-                ft.TextButton("取消", on_click=lambda e: close_current()),
+                ft.TextButton(tr("取消"), on_click=lambda e: close_current()),
                 ft.FilledButton(
-                    "保存", icon=ft.Icons.CHECK,
+                    tr("保存"), icon=ft.Icons.CHECK,
                     bgcolor=theme.ACCENT, color=theme.ON_ACCENT, elevation=0,
                     style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)),
                     on_click=lambda e: on_save(),
@@ -561,7 +562,7 @@ def build(page: ft.Page) -> ft.Control:
             actions=[
                 ft.TextButton("再想想", on_click=lambda e: close_current()),
                 ft.FilledButton(
-                    "删除", icon=ft.Icons.DELETE_OUTLINE,
+                    tr("删除"), icon=ft.Icons.DELETE_OUTLINE,
                     bgcolor="#D98C8C", color="#FFFFFF", elevation=0,
                     style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)),
                     on_click=do_delete,

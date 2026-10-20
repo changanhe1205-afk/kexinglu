@@ -1,4 +1,4 @@
-; 客行录 · Inno Setup 安装包脚本
+﻿; 客行录 · Inno Setup 安装包脚本
 ;
 ; 用 build_installer.py 编译（或直接）：
 ;     D:\Tools\InnoSetup\ISCC.exe installer.iss

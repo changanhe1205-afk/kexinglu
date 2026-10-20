@@ -1,0 +1,5 @@
+{
+  "folders": [{"path": "."}],
+  "settings": {"dart.flutterSdkPath": "D:/Tools/flutter", "dart.env": {"PUB_CACHE": "D:/Tools/pub-cache", "TEMP": "D:/Tools/tmp", "TMP": "D:/Tools/tmp", "JAVA_HOME": "D:/Java/jdk-21.0.10", "ANDROID_HOME": "D:/Tools/android-sdk"}},
+  "extensions": {"recommendations": ["Dart-Code.flutter"]}
+}

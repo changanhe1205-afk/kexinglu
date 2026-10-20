@@ -25,6 +25,7 @@ PICK_EXT = ["png", "jpg", "jpeg", "webp", "bmp"]
 
 # （显示名，资源相对路径）
 PRESETS = [
+    ("湖畔留白", "assets/backgrounds/lakeside.png"),
     ("夜蓝", "assets/home_bg.jpg"),
     ("暖橙", "assets/bg_warm.jpg"),
     ("薄荷", "assets/bg_mint.jpg"),
