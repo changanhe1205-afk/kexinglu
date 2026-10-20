@@ -20,6 +20,9 @@ _cache: dict | None = None
 
 
 def _config_dir() -> str:
+    if sys.platform == "linux":
+        root = os.getenv("XDG_CONFIG_HOME") or os.path.expanduser("~/.config")
+        return os.path.join(root, "kexinglu" if getattr(sys, "frozen", False) else "kexinglu-dev")
     root = os.getenv("APPDATA") or os.path.expanduser("~")
     # 开发环境和打包版分开存配置，免得调试时把用户的选择覆盖掉
     name = APP_NAME if getattr(sys, "frozen", False) else APP_NAME + "-dev"
@@ -70,6 +73,9 @@ def default_data_dir() -> str:
     开发环境放项目下的 data；打包后放 %LOCALAPPDATA%\\客行录。
     """
     if getattr(sys, "frozen", False):
+        if sys.platform == "linux":
+            root = os.getenv("XDG_DATA_HOME") or os.path.expanduser("~/.local/share")
+            return os.path.join(root, "kexinglu")
         root = os.getenv("LOCALAPPDATA") or os.path.expanduser("~")
         legacy = os.path.join(root, LEGACY_APP_NAME)
         current = os.path.join(root, APP_NAME)

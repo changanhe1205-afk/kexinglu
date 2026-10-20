@@ -29,6 +29,9 @@ def initialize():
 
     def report_failure(kind, error, traceback):
         logger.error("Startup failed", exc_info=(kind, error, traceback))
+        if sys.platform != "win32":
+            print(f"客行录启动失败，请查看日志：{log_path}\n{error}", file=sys.stderr)
+            return
         import ctypes
         ctypes.windll.user32.MessageBoxW(
             None,

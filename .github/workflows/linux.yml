@@ -1,0 +1,33 @@
+name: Linux desktop build
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Desktop dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-0 libsecret-1-0 libayatana-appindicator3-1 libgl1-mesa-dri xvfb xdg-utils fonts-noto-cjk
+          python -m pip install -r requirements.txt
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p test_cloud_sync.py
+      - name: Build Linux bundles
+        run: python tools/build_linux.py
+      - name: Offline packaged launch
+        run: |
+          mkdir -p "$RUNNER_TEMP/kexinglu-home"
+          HOME="$RUNNER_TEMP/kexinglu-home" LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a python tools/smoke_linux.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kexinglu-linux
+          path: |
+            dist/Kexinglu-Linux-1.0.0-*
+            dist/linux-smoke.txt
+          if-no-files-found: error

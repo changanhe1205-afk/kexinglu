@@ -5,10 +5,11 @@ import sys
 
 
 def configure_desktop_runtime():
-    if not getattr(sys, "frozen", False) or sys.platform != "win32":
+    if not getattr(sys, "frozen", False) or sys.platform not in ("win32", "linux"):
         return None
     client = Path(sys._MEIPASS) / "flet_desktop" / "app" / "flet"
-    required = ("flet.exe", "flutter_windows.dll", "data/icudtl.dat", "data/app.so")
+    required = (("flet.exe", "flutter_windows.dll", "data/icudtl.dat", "data/app.so")
+                if sys.platform == "win32" else ("flet", "lib/libflutter_linux_gtk.so", "data/icudtl.dat"))
     missing = [name for name in required if not (client / name).is_file()]
     if missing:
         raise RuntimeError("客行录运行组件不完整，请重新安装完整安装包。缺少：" + ", ".join(missing))
