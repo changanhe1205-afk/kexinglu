@@ -14,7 +14,7 @@ jobs:
       - name: Desktop dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgtk-3-0 libsecret-1-0 libayatana-appindicator3-1 libgl1-mesa-dri xvfb xdg-utils fonts-noto-cjk
+          sudo apt-get install -y libgtk-3-0 libsecret-1-0 libayatana-appindicator3-1 libgl1-mesa-dri xvfb x11-utils xdg-utils fonts-noto-cjk
           python -m pip install -r requirements.txt
       - name: Unit tests
         run: python -m unittest discover -s tests -p test_cloud_sync.py
@@ -22,9 +22,11 @@ jobs:
         run: python tools/build_linux.py
       - name: Offline packaged launch
         run: |
+          ldd dist/kexinglu/_internal/flet_desktop/app/flet/flet
           mkdir -p "$RUNNER_TEMP/kexinglu-home"
           HOME="$RUNNER_TEMP/kexinglu-home" LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a python tools/smoke_linux.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: kexinglu-linux
           path: |

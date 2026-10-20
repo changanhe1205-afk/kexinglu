@@ -304,11 +304,9 @@ def build(page: ft.Page, on_theme_change=None,
 
     def open_data_dir(e=None) -> None:
         """在资源管理器里打开数据目录，方便自己备份 / 清理。"""
-        if not hasattr(os, "startfile"):
-            show_tip(f"数据目录：{data_dir}")
-            return
         try:
-            os.startfile(storage.current_dir())      # noqa: S606 —— 仅 Windows 有
+            from platform_files import open_local
+            open_local(storage.current_dir())
         except OSError:
             show_tip(f"打不开目录，路径是：{data_dir}")
 

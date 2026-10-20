@@ -1584,7 +1584,8 @@ def build(page: ft.Page) -> ft.Control:
 
     def open_folder(folder: str) -> None:
         try:
-            os.startfile(folder)   # type: ignore[attr-defined]
+            from platform_files import open_local
+            open_local(folder)
         except Exception:
             show_tip(f"文件在：{folder}")
 

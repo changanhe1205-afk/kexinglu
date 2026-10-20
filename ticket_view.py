@@ -795,7 +795,8 @@ def build(page: ft.Page) -> ft.Control:
 
     def _open_image(path: str) -> None:
         try:
-            os.startfile(path)   # type: ignore[attr-defined]
+            from platform_files import open_local
+            open_local(path)
         except OSError:
             show_tip("图片在：" + path)
 

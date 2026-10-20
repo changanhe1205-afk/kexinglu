@@ -128,7 +128,8 @@ def build(page: ft.Page) -> ft.Control:
 
     def _open_image(path: str) -> None:
         try:
-            os.startfile(path)      # noqa: S606 —— Windows 专属
+            from platform_files import open_local
+            open_local(path)
         except (OSError, AttributeError):
             show_tip("照片在：" + path)
 
