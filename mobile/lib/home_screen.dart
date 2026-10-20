@@ -1,4 +1,5 @@
 import 'i18n.dart';
+import 'adaptive_layout.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -117,8 +118,8 @@ class _JournalHomeState extends State<JournalHome> {
   );
 
   @override
-  Widget build(BuildContext context) => ListView(
-    padding: const EdgeInsets.fromLTRB(20, 16, 20, 132),
+  Widget build(BuildContext context) => JournalDashboard(
+    splitIndex: widget.recovery == null ? 10 : 12,
     children: [
       // 顶部问候：只留时间感，不再用大时钟占版面。
       LocalText('TODAY', style: TextStyle(fontSize: 9, letterSpacing: 2.4,

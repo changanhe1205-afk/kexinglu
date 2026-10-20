@@ -96,3 +96,10 @@ py -3.14 -m venv .venv
 客行录免费提供使用。一个 Star、一条建议，或一份随心的赞赏，都是继续打磨它的动力。赞赏完全自愿，不解锁功能，不影响正常使用。谢谢你，让这个小作品走得更远。
 
 <img src="docs/support/wechat.png" width="260" alt="微信赞赏码" />
+
+
+### Android tablets & Linux / 平板与 Linux
+
+Android 1.0.0 supports phones, tablets, rotation and split-screen with one APK. Large windows show journals and maps side by side. Linux 1.0.0 packages target Ubuntu 22.04+ x64: DEB installer and portable TAR.GZ. See [Linux instructions](docs/LINUX.md).
+
+安卓手机和平板使用同一 APK。Linux 安装说明见上方链接；所有安装包统一在 [Releases](https://github.com/changanhe1205-afk/kexinglu/releases/latest) 和官网提供。

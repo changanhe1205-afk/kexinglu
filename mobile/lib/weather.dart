@@ -558,7 +558,7 @@ class _WeatherPanelState extends State<WeatherPanel> with WidgetsBindingObserver
           ]),
           const SizedBox(height: 14),
           Row(children: [
-            metric(Icons.water_drop_outlined, humidity == null ? '—' : '${(humidity * 100).round()}%', '湿度'),
+            metric(Icons.water_drop_outlined, humidity == null ? '—' : '${humidity.clamp(0, 100).round()}%', '湿度'),
             const SizedBox(width: 8),
             metric(Icons.air, '${windZh.isNotEmpty ? '$windZh ' : ''}${windSpeed?.round() ?? '—'} m/s', '风'),
           ]),

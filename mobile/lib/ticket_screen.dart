@@ -1,4 +1,5 @@
 import 'i18n.dart';
+import 'adaptive_layout.dart';
 import 'airlines.dart';
 import 'ticket_colors.dart';
 
@@ -152,8 +153,8 @@ class _TicketScreenState extends State<TicketScreen> {
               widget.atlas.locate(e.text('to'), mode) == null,
         )
         .length;
-    return ListView(
-      padding: const EdgeInsets.only(bottom: 130),
+    return JournalWorkspace(
+      mapIndex: 3,
       children: [
         SectionHead(
           'A COLLECTION OF ARRIVALS',

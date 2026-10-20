@@ -1,4 +1,5 @@
 import 'i18n.dart';
+import 'adaptive_layout.dart';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -320,8 +321,8 @@ class _JournalShellState extends State<JournalShell> {
         final e = recovered!; setState(() => recovered = null); edit(e.kind, entry: e);
       }, child: const LocalText('继续编辑'))]),
   );
-  Widget travel() => ListView(
-    padding: const EdgeInsets.only(bottom: 130),
+  Widget travel() => JournalWorkspace(
+    mapIndex: 1,
     children: [
       SectionHead(
         'PLACES & MEMORIES',
@@ -537,7 +538,11 @@ class _JournalShellState extends State<JournalShell> {
                 ),
                 child: KeyedSubtree(
                   key: ValueKey(selected),
-                  child: pages[selected],
+                  child: Align(alignment: Alignment.topCenter,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: selected == 3 || selected == 4 ? 760 : 1440),
+                      child: pages[selected],
+                    )),
                 ),
               ),
             ),
@@ -551,13 +556,15 @@ class _JournalShellState extends State<JournalShell> {
                 maintainBottomViewPadding: true,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                  child: Glass(
+                  child: Center(child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 680),
+                    child: Glass(
                     color: p.paper,
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(minHeight: 76),
                       child: nav,
                     ),
-                  ),
+                  ))),
                 ),
               ),
             ),

@@ -20,6 +20,7 @@ Future<void> editEntry(
     context: context,
     isScrollControlled: true,
     useSafeArea: true,
+    constraints: const BoxConstraints(maxWidth: 640),
     backgroundColor: Theme.of(context).colorScheme.surface,
     builder: (context) => RecordEditor(
       store: store,
@@ -224,7 +225,7 @@ class _RecordEditorState extends State<RecordEditor> {
           elevation: 8,
           borderRadius: BorderRadius.circular(16),
           child: SizedBox(
-            width: MediaQuery.sizeOf(c).width - 48,
+            width: (MediaQuery.sizeOf(c).width - 48).clamp(0.0, 592.0),
             height: (options.length * 52.0).clamp(0, 208),
             child: ListView(
               padding: EdgeInsets.zero,
@@ -268,7 +269,7 @@ class _RecordEditorState extends State<RecordEditor> {
           elevation: 8,
           borderRadius: BorderRadius.circular(16),
           child: SizedBox(
-            width: MediaQuery.sizeOf(c).width - 48,
+            width: (MediaQuery.sizeOf(c).width - 48).clamp(0.0, 592.0),
             height: (options.length * 52.0).clamp(0, 208),
             child: ListView(
               padding: EdgeInsets.zero,

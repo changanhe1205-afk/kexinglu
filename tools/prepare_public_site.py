@@ -17,7 +17,7 @@ page=page.replace('1.0.1','1.0.0').replace(' · 82.2 MB','').replace(' · 23.4 M
 page=page.replace('数据只在你手里。','本地保存，同步由你决定。').replace('本地优先 · 数据只在你手里','本地优先 · 自由记录')
 page=page.replace('一键导出包含照片的 JSON 备份，换设备或重装都能导回。','支持本地备份与恢复。换设备前先导出备份，并确认照片与记录完整。')
 page=page.replace('覆盖安装会保留原有资料；安装包固定同名，重新生成时直接覆盖。','两端版本均为 1.0.0。已有用户直接覆盖安装，无需卸载；更新前建议保留一份备份。')
-page=re.sub(r'<div class="hash">.*?</div>', '<div class="hash"><a href="'+base+'SHA256SUMS.txt">查看 SHA256 校验值</a></div>',page,flags=re.S)
+# Download cards now contain platform-specific links; preserve their contents.
 page=page.replace('      <a href="#privacy">隐私</a>', '      <a href="#privacy">隐私</a>\n      <a href="#support">支持</a>')
 page=page.replace('    <a class="btn btn-small"', '    <a class="language-link" href="en.html" lang="en">EN</a>\n    <a class="btn btn-small"',1)
 if 'id="support"' not in page:
