@@ -5,11 +5,11 @@ on:
       release_tag:
         description: Existing draft release tag
         required: true
-        default: v1.0.0-build28
+        default: v1.0.0-build29
       linux_run_id:
         description: Successful Linux desktop build run
         required: true
-        default: '39416225440'
+        default: '39549486390'
 jobs:
   attach:
     runs-on: ubuntu-22.04
@@ -32,12 +32,11 @@ jobs:
           run-id: ${{ inputs.linux_run_id }}
           github-token: ${{ github.token }}
           path: packages
-      - name: Attach unchanged Windows and verified Linux packages
+      - name: Attach verified Linux packages
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
           TAG: ${{ inputs.release_tag }}
         run: |
-          gh release download v1.0.0-build25 --repo "$REPO" --pattern Kexinglu-Setup-1.0.0.exe --dir packages
-          sha256sum packages/*.deb packages/*.tar.gz packages/*.exe
-          gh release upload "$TAG" packages/*.deb packages/*.tar.gz packages/*.exe --repo "$REPO" --clobber
+          sha256sum packages/*.deb packages/*.tar.gz
+          gh release upload "$TAG" packages/*.deb packages/*.tar.gz --repo "$REPO" --clobber
