@@ -1,0 +1,43 @@
+name: Attach verified desktop packages
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing draft release tag
+        required: true
+        default: v1.0.0-build28
+      linux_run_id:
+        description: Successful Linux desktop build run
+        required: true
+        default: '39416225440'
+jobs:
+  attach:
+    runs-on: ubuntu-22.04
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - name: Check successful build and draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ inputs.release_tag }}
+          RUN: ${{ inputs.linux_run_id }}
+        run: |
+          test "$(gh api "repos/$REPO/actions/runs/$RUN" --jq .conclusion)" = success
+          test "$(gh release view "$TAG" --repo "$REPO" --json isDraft --jq .isDraft)" = true
+      - uses: actions/download-artifact@v4
+        with:
+          name: kexinglu-linux
+          run-id: ${{ inputs.linux_run_id }}
+          github-token: ${{ github.token }}
+          path: packages
+      - name: Attach unchanged Windows and verified Linux packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ inputs.release_tag }}
+        run: |
+          gh release download v1.0.0-build25 --repo "$REPO" --pattern Kexinglu-Setup-1.0.0.exe --dir packages
+          sha256sum packages/*.deb packages/*.tar.gz packages/*.exe
+          gh release upload "$TAG" packages/*.deb packages/*.tar.gz packages/*.exe --repo "$REPO" --clobber
