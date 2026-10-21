@@ -13,6 +13,11 @@ class PosterResult {
 
 class PosterSearch {
   static final _cache = <String, List<PosterResult>>{};
+  static String normalized(String value) => value.toLowerCase().replaceAll(RegExp(r'[\s·:：\-—_()（）]'), '');
+  static bool matches(String title, String query) {
+    final name = normalized(title), term = normalized(query);
+    return term.isNotEmpty && name.contains(term);
+  }
   static Future<List<PosterResult>> search(String query) async {
     final key = query.trim().toLowerCase();
     if (key.isEmpty) return [];
@@ -45,6 +50,9 @@ class PosterSearch {
           final image = data['image'] is Map ? data['image']['medium'] : null;
           final title = data['name'];
           if (image is! String || title is! String) continue;
+          // TVmaze uses fuzzy matching; never suggest unrelated titles merely
+          // because their spelling resembles the requested film.
+          if (!matches(title, query)) continue;
           final year = '${data['premiered'] ?? ''}'.split('-').first;
           results.add(PosterResult('$title${year.isEmpty ? '' : ' · $year'}',
             image.replaceFirst('http://', 'https://'), 'TVmaze · CC BY-SA',
@@ -57,6 +65,10 @@ class PosterSearch {
       wiki(),
     ]);
     final unique = <String, PosterResult>{for (final r in results) r.image: r}.values.take(12).toList();
+    unique.sort((a, b) {
+      int rank(PosterResult r) => normalized(r.title.split(' · ').first) == normalized(query) ? 0 : 1;
+      return rank(a).compareTo(rank(b));
+    });
     if (unique.isNotEmpty) {
       if (_cache.length >= 40) _cache.remove(_cache.keys.first);
       _cache[key] = unique;
