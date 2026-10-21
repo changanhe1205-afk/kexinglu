@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'airlines.dart';
 import 'atlas.dart';
 import 'store.dart';
+import 'poster_search.dart';
 
 Future<void> editEntry(
   BuildContext context,
@@ -189,7 +190,7 @@ class _RecordEditorState extends State<RecordEditor> {
       minLines: lines,
       maxLines: lines == 1 ? 1 : 5,
       keyboardType: keyboard,
-      onChanged: (_) => dirty = true,
+      onChanged: (_) { dirty = true; if (key == 'title' && widget.kind == 'movie') setState(() {}); },
       decoration: InputDecoration(labelText: tr(label), alignLabelWithHint: true),
       validator: (v) =>
           required && (v ?? '').trim().isEmpty ? '请填写$label' : null,
@@ -396,6 +397,12 @@ class _RecordEditorState extends State<RecordEditor> {
                       if (widget.kind == 'food') input('place', '店铺 / 地点'),
                       if (widget.kind == 'movie')
                         input('category', '电影 / 剧集 / 其他'),
+                      if (widget.kind == 'movie') PosterCandidates(query: field('title').text,
+                        onSelected: (path, poster) => setState(() {
+                          image = path; dirty = true;
+                          field('posterSource').text = poster.source;
+                          field('posterUrl').text = poster.url;
+                        })),
                     ],
                     Padding(
                       padding: const EdgeInsets.only(bottom: 16),

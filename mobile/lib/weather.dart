@@ -517,8 +517,8 @@ class _WeatherPanelState extends State<WeatherPanel> with WidgetsBindingObserver
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(children: [
-          LocalText('天气', style: TextStyle(color: p.accent, fontSize: 13, fontWeight: FontWeight.w600)),
-          const Spacer(),
+          Expanded(child: LocalText('天气', style: TextStyle(color: p.accent, fontSize: 13, fontWeight: FontWeight.w600))),
+          IconButton(tooltip: '刷新天气', onPressed: busy ? null : refresh, icon: const Icon(Icons.refresh_rounded, size: 18)),
           IconButton(tooltip: '使用手机定位', onPressed: busy ? null : locate, icon: const Icon(Icons.my_location_rounded, size: 19)),
           TextButton(onPressed: busy ? null : choose, child: const LocalText('选择城市')),
         ]),
@@ -578,14 +578,6 @@ class _WeatherPanelState extends State<WeatherPanel> with WidgetsBindingObserver
             TextButton(onPressed: refresh, child: const LocalText('重试')),
             TextButton(onPressed: () => Geolocator.openAppSettings(), child: const LocalText('权限设置')),
             TextButton(onPressed: () => Geolocator.openLocationSettings(), child: const LocalText('定位设置')),
-          ]),
-        ],
-        if (temp != null) ...[
-          const SizedBox(height: 8),
-          Row(children: [
-            Expanded(child: LocalText('更新于 $stamp · Open-Meteo',
-              style: TextStyle(fontSize: 10, color: p.ink.withValues(alpha: .5)))),
-            IconButton(tooltip: '刷新天气', onPressed: busy ? null : refresh, icon: const Icon(Icons.refresh_rounded, size: 18)),
           ]),
         ],
       ]),

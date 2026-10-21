@@ -7,6 +7,7 @@ import time
 import flet as ft
 import theme
 from cloud_client import current_client, CloudError
+from profile_account_editor import open_editor
 
 
 def build(page):
@@ -23,6 +24,9 @@ def build(page):
     mode = 'password'
     message = ft.Text('', size=12, color=theme.TEXT_SUB, selectable=True)
     identity = ft.Text(cloud.email or '登录后，可手动同步两端资料', size=13, color=theme.TEXT_MAIN)
+    avatar_badge = ft.Container(width=48, height=48, border_radius=24,
+        clip_behavior=ft.ClipBehavior.ANTI_ALIAS,
+        content=ft.Icon(ft.Icons.PERSON_OUTLINE, color=theme.ACCENT))
     buttons = []
     busy = False
     resend_until = 0.0
@@ -34,6 +38,13 @@ def build(page):
 
     def refresh():
         identity.value = cloud.email or '登录后，可手动同步两端资料'
+        if cloud.uid:
+            from cloud_profile import ProfileRepository
+            profile = ProfileRepository(cloud).local()
+            identity.value = ' · '.join(v for v in [profile.get('nickname') or cloud.email, profile.get('signature')] if v)
+            avatar_badge.content = ft.Image(src=profile['avatar'], fit=ft.BoxFit.COVER) if profile.get('avatar') else ft.Icon(ft.Icons.PERSON_OUTLINE, color=theme.ACCENT)
+        else:
+            avatar_badge.content = ft.Icon(ft.Icons.PERSON_OUTLINE, color=theme.ACCENT)
         for button, enabled in buttons:
             button.disabled = busy or not cloud.configured or not enabled()
         paint_form()
@@ -166,6 +177,8 @@ def build(page):
     password_settings = ft.ExpansionTile(title=ft.Text(tr('账号安全'), size=14),
         controls=[new_password, update], tile_padding=0)
     manage = ft.Column(spacing=16, controls=[
+        ft.OutlinedButton('编辑个人资料', icon=ft.Icons.EDIT_OUTLINED,
+            on_click=lambda e: open_editor(page, cloud, refresh)),
         ft.Text(tr('资料同步'), size=18, weight=ft.FontWeight.W_600, color=theme.TEXT_MAIN),
         ft.Text('合并旅行、票根、收藏与手账，保留两端修改冲突。', size=12, color=theme.TEXT_SUB),
         sync, password_settings, logout])
@@ -215,6 +228,9 @@ def build(page):
         async def discover():
             try:
                 await asyncio.to_thread(cloud.refresh_providers)
+                if cloud.uid:
+                    from cloud_profile import ProfileRepository
+                    await asyncio.to_thread(ProfileRepository(cloud).load)
                 refresh()
             except CloudError:
                 pass  # Email login remains available offline / during provider discovery failure.
@@ -225,7 +241,7 @@ def build(page):
     new_password.on_submit = update.on_click
     paint_form()
     return theme.glass_card(ft.Row(spacing=16,controls=[
-        theme.icon_badge(ft.Icons.PERSON_OUTLINE,42,theme.CARD_BG_SOFT,theme.ACCENT,22),
+        avatar_badge,
         ft.Column(expand=True,spacing=5,controls=[
             ft.Text(tr('账号与同步'),size=17,weight=ft.FontWeight.W_600,color=theme.TEXT_MAIN),identity]),
         entry_button]), padding=22, spacing=12)

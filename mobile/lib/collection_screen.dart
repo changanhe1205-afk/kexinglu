@@ -2,6 +2,7 @@ import 'i18n.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'look.dart';
 import 'store.dart';
@@ -117,6 +118,10 @@ class _CollectionScreenState extends State<CollectionScreen>
         Expanded(child: widget.photo(e)), Padding(padding: const EdgeInsets.all(20), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(e.text('title'), maxLines: 2, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
           const SizedBox(height: 8), LocalText('${e.text('date')}  ·  轻触查看感悟', style: TextStyle(fontSize: 11, color: p.accent)),
+          if (Uri.tryParse(e.text('posterUrl'))?.scheme == 'https')
+            InkWell(onTap: () => launchUrl(Uri.parse(e.text('posterUrl')), mode: LaunchMode.externalApplication),
+              child: Text('海报：${e.text('posterSource')}',
+                style: TextStyle(fontSize: 10, color: p.accent, decoration: TextDecoration.underline))),
         ]))])),
       back: paper(Padding(padding: const EdgeInsets.all(20), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(e.text('title'), maxLines: 2, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),

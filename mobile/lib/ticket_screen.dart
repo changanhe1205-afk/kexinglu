@@ -2,6 +2,7 @@ import 'i18n.dart';
 import 'adaptive_layout.dart';
 import 'airlines.dart';
 import 'ticket_colors.dart';
+import 'ticket_flight.dart';
 
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,21 @@ class _TicketScreenState extends State<TicketScreen> {
   String mode = 'air';
   final controller = PageController(viewportFraction: .88);
   double page = 0;
+  String? flying;
+  final backs = <String>{};
+  Future<void> fly(Entry e, BuildContext cardContext) async {
+    if (flying != null) return;
+    final box = cardContext.findRenderObject() as RenderBox?;
+    if (box == null) return;
+    final origin = box.localToGlobal(Offset.zero) & box.size;
+    final wasBack = backs.contains(e.id);
+    setState(() => flying = e.id);
+    await showGeneralDialog<void>(context: context, barrierDismissible: false,
+      barrierColor: Colors.transparent, transitionDuration: Duration.zero,
+      pageBuilder: (_, _, _) => TicketFlight(origin: origin, front: paper(e, back: wasBack),
+        back: paper(e, back: !wasBack), reduced: widget.reduced));
+    if (mounted) setState(() { flying = null; wasBack ? backs.remove(e.id) : backs.add(e.id); });
+  }
   @override
   void initState() {
     super.initState();
@@ -238,10 +254,12 @@ class _TicketScreenState extends State<TicketScreen> {
                       horizontal: 7,
                       vertical: 12,
                     ),
-                    child: GestureDetector(
-                      onTap: () => open(items[i]),
-                      child: paper(items[i]),
-                    ),
+                    child: Builder(builder: (cardContext) => GestureDetector(
+                      onTap: () => fly(items[i], cardContext),
+                      onLongPress: () => open(items[i]),
+                      child: Opacity(opacity: flying == items[i].id ? 0 : 1,
+                        child: paper(items[i], back: backs.contains(items[i].id))),
+                    )),
                   ),
                 );
               },
@@ -249,7 +267,7 @@ class _TicketScreenState extends State<TicketScreen> {
           ),
         if (items.isNotEmpty)
           const Center(
-            child: LocalText('左右滑动收藏 · 点击翻看票根', style: TextStyle(fontSize: 10)),
+            child: LocalText('轻点居中翻转 · 长按编辑票根', style: TextStyle(fontSize: 10)),
           ),
       ],
     );

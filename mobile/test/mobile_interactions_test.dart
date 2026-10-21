@@ -43,11 +43,15 @@ void main() {
       await t.tap(find.byTooltip('全屏地图')); await t.pumpAndSettle();
       expect(find.byTooltip('退出全屏地图'),findsOneWidget);
       final viewer=t.widget<InteractiveViewer>(find.byKey(const ValueKey('route-map-pan-zoom')).last);
+      final chinaScale=viewer.transformationController!.value.getMaxScaleOnAxis();
+      expect(chinaScale,greaterThan(1));
       await t.tap(find.byTooltip('放大地图')); await t.pumpAndSettle();
       expect(viewer.transformationController!.value.getMaxScaleOnAxis(), greaterThan(1));
       await t.drag(find.byKey(const ValueKey('route-map-pan-zoom')).last, const Offset(70,40)); await t.pumpAndSettle();
       expect(viewer.transformationController!.value.storage[12], isNot(0));
       await t.tap(find.byTooltip('复位地图')); await t.pumpAndSettle();
+      expect(viewer.transformationController!.value.getMaxScaleOnAxis(),chinaScale);
+      await t.tap(find.text('世界地图').last); await t.pumpAndSettle();
       expect(viewer.transformationController!.value.getMaxScaleOnAxis(),1);
       await t.tap(find.text('横屏')); await t.pumpAndSettle();
       expect(platformCalls.any((c) => c.method=='SystemChrome.setPreferredOrientations' && (c.arguments as List).contains('DeviceOrientation.landscapeLeft')),true);

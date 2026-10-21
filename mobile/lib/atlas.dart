@@ -86,12 +86,23 @@ class RouteMap extends StatefulWidget {
   const RouteMap({super.key, required this.atlas, required this.records,
     required this.mode, required this.accent, this.dark = false,
     this.selected, this.fullscreen = false, this.showControls = true,
-    this.initialWorld = true});
+    this.initialWorld = false});
   @override State<RouteMap> createState() => _RouteMapState();
 }
 class _RouteMapState extends State<RouteMap> {
   final transform = TransformationController();
   late bool worldView = widget.initialWorld;
+  Size? viewport;
+  void frame(Size size, bool world) {
+    // A single world projection: China is a camera position, never a clipped map.
+    final base = math.min(size.width / 360, size.height / 145);
+    final scale = world ? 1.0 : (math.min(size.width / 76, size.height / 52) / base).clamp(.5, 12.0);
+    final point = world ? Offset(size.width / 2, size.height / 2)
+      : Offset(size.width / 2 + 104 * base, size.height / 2 + (12.5 - 35) * base);
+    transform.value = Matrix4.identity()
+      ..translateByDouble(size.width / 2 - point.dx * scale, size.height / 2 - point.dy * scale, 0, 1)
+      ..scaleByDouble(scale, scale, 1, 1);
+  }
   @override void dispose() { transform.dispose(); super.dispose(); }
   Future<void> open() async {
     await Navigator.push(context, MaterialPageRoute(builder: (_) => _FullMap(map: widget, initialWorld: worldView)));
@@ -128,6 +139,7 @@ class _RouteMapState extends State<RouteMap> {
       child: ColoredBox(color: widget.dark ? const Color(0xff17282c) : const Color(0xffe6eeeb),
         child: LayoutBuilder(builder: (context, constraints) {
           final size = constraints.biggest;
+          if (viewport != size) { viewport = size; frame(size, worldView); }
           Widget chrome(Widget child) => IgnorePointer(
             ignoring: !widget.showControls,
             child: AnimatedOpacity(
@@ -143,7 +155,7 @@ class _RouteMapState extends State<RouteMap> {
               trackpadScrollCausesScale: true,
               child: AnimatedBuilder(animation: transform, builder: (_, _) => RepaintBoundary(child: CustomPaint(
                 painter: AtlasPainter(widget.atlas, points, widget.accent, widget.dark, widget.mode, focus,
-                  worldView: worldView, zoom: transform.value.getMaxScaleOnAxis()), size: size))))),
+                  worldView: true, zoom: transform.value.getMaxScaleOnAxis()), size: size))))),
             if (!widget.fullscreen)
               Positioned(left: 16, top: 16, child: chrome(Text(title, style: TextStyle(
                 color: widget.dark ? Colors.white70 : const Color(0xff3d625b), fontWeight: FontWeight.w600)))),
@@ -155,7 +167,7 @@ class _RouteMapState extends State<RouteMap> {
                 borderRadius: BorderRadius.circular(18),
                 elevation: 2,
                 child: InkWell(
-                  onTap: () => setState(() => worldView = !worldView),
+                  onTap: () => setState(() { worldView = !worldView; frame(size, worldView); }),
                   borderRadius: BorderRadius.circular(18),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
@@ -179,7 +191,7 @@ class _RouteMapState extends State<RouteMap> {
                 if (widget.fullscreen) ...[
                   IconButton(tooltip: '放大地图', onPressed: () => zoom(1.4, size), icon: const Icon(Icons.add)),
                   IconButton(tooltip: '缩小地图', onPressed: () => zoom(1/1.4, size), icon: const Icon(Icons.remove)),
-                  IconButton(tooltip: '复位地图', onPressed: () => transform.value = Matrix4.identity(), icon: const Icon(Icons.center_focus_strong)),
+                  IconButton(tooltip: '复位地图', onPressed: () { worldView = false; frame(size, false); }, icon: const Icon(Icons.center_focus_strong)),
                 ],
                 if (!widget.fullscreen) IconButton(tooltip: '全屏地图', onPressed: open, icon: const Icon(Icons.fullscreen_rounded)),
               ])))),
@@ -274,7 +286,7 @@ class _FullMapState extends State<_FullMap> {
   @override
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: Colors.black,
-    body: Stack(fit: StackFit.expand, children: [
+    body: Listener(onPointerDown: (_) { if (controls) _scheduleHide(); }, child: Stack(fit: StackFit.expand, children: [
       GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: _toggleControls,
@@ -314,7 +326,7 @@ class _FullMapState extends State<_FullMap> {
           ),
         ),
       ),
-    ]),
+    ])),
   );
 }
 

@@ -1,6 +1,7 @@
 import 'i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'backup.dart';
 import 'look.dart';
@@ -396,6 +397,16 @@ class ProfileAboutScreen extends StatelessWidget {
                 LocalText('记录地点、票根、食光、影视与手账。', textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 13, height: 1.7, color: palette.ink.withValues(alpha: .55))),
                 const SizedBox(height: 22),
+                ListTile(
+                  leading: Icon(Icons.language_rounded, color: palette.accent),
+                  title: const LocalText('客行录官网'),
+                  subtitle: const Text('waylore-kexinglu.fonddill9.chatgpt.site'),
+                  trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+                  onTap: () async {
+                    final opened = await launchUrl(Uri.parse('https://waylore-kexinglu.fonddill9.chatgpt.site'), mode: LaunchMode.externalApplication);
+                    if (!opened && context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('暂时无法打开浏览器，请稍后重试')));
+                  },
+                ),
                 ProfilePaper(
                   palette: palette,
                   padding: const EdgeInsets.all(16),
