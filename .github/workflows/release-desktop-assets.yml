@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Existing draft release tag
         required: true
-        default: v1.0.0-build29
+        default: v1.0.0-build30
       linux_run_id:
         description: Successful Linux desktop build run
         required: true
