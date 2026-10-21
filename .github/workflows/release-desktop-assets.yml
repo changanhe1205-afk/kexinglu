@@ -5,7 +5,11 @@ on:
       release_tag:
         description: Existing draft release tag
         required: true
-        default: v1.0.0-build30
+        default: v1.0.0-build31
+      windows_source_tag:
+        description: Optional published release with unchanged Windows installer
+        required: false
+        default: ''
       linux_run_id:
         description: Successful Linux desktop build run
         required: true
@@ -40,3 +44,14 @@ jobs:
         run: |
           sha256sum packages/*.deb packages/*.tar.gz
           gh release upload "$TAG" packages/*.deb packages/*.tar.gz --repo "$REPO" --clobber
+      - name: Reuse unchanged Windows installer
+        if: inputs.windows_source_tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ inputs.release_tag }}
+          SOURCE: ${{ inputs.windows_source_tag }}
+        run: |
+          test "$(gh release view "$SOURCE" --repo "$REPO" --json isDraft --jq .isDraft)" = false
+          gh release download "$SOURCE" --repo "$REPO" --pattern Kexinglu-Setup-1.0.0.exe --dir packages
+          gh release upload "$TAG" packages/Kexinglu-Setup-1.0.0.exe --repo "$REPO" --clobber

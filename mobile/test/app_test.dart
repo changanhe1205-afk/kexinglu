@@ -181,8 +181,9 @@ void main() {
     expect(find.text('CNY 580'), findsOneWidget);
     await t.tap(find.text('CA1234'));
     await t.pumpAndSettle();
-    expect(find.text('抵达之后，\n故事才刚开始。'), findsOneWidget);
-    await t.longPress(find.text('抵达之后，\n故事才刚开始。'));
+    expect(find.text('抵达之后，\n故事才刚开始。'), findsNothing);
+    expect(find.text('CA1234'), findsOneWidget);
+    await t.longPress(find.text('CA1234'));
     await t.pumpAndSettle();
     await t.tap(find.text('编辑票根'));
     await t.pumpAndSettle();

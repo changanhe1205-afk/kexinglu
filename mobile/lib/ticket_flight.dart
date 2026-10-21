@@ -10,7 +10,7 @@ class TicketFlight extends StatefulWidget {
   @override State<TicketFlight> createState() => _TicketFlightState();
 }
 class _TicketFlightState extends State<TicketFlight> with SingleTickerProviderStateMixin {
-  late final animation = AnimationController(vsync: this, duration: Duration(milliseconds: widget.reduced ? 1600 : 2800));
+  late final animation = AnimationController(vsync: this, duration: Duration(milliseconds: widget.reduced ? 800 : 1500));
   @override void initState() {
     super.initState();
     animation.forward().whenComplete(() { if (mounted) Navigator.pop(context); });
@@ -25,9 +25,11 @@ class _TicketFlightState extends State<TicketFlight> with SingleTickerProviderSt
     final lift = widget.reduced ? 1.0 : t < .2 ? Curves.easeOutCubic.transform(t / .2)
       : t > .8 ? 1 - Curves.easeInOutCubic.transform((t - .8) / .2) : 1.0;
     final rect = Rect.lerp(widget.origin, center, lift)!;
-    final flip = ((t - .22) / .22).clamp(0.0, 1.0);
+    // Show the reverse briefly, then face forward before returning to the deck.
+    final flip = t < .58 ? ((t - .2) / .2).clamp(0.0, 1.0)
+      : (1 - (t - .58) / .2).clamp(0.0, 1.0);
     final angle = widget.reduced ? 0.0 : Curves.easeInOutCubic.transform(flip) * math.pi;
-    final back = widget.reduced ? t > .3 : angle > math.pi / 2;
+    final back = widget.reduced ? t > .3 && t < .7 : angle > math.pi / 2;
     return Material(color: Colors.transparent, child: Stack(children: [
       Positioned.fill(child: GestureDetector(onTap: () => Navigator.pop(context),
         child: ColoredBox(color: Colors.black.withValues(alpha: .3 * lift)))),

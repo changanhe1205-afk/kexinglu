@@ -1,7 +1,7 @@
 name: kexinglu_mobile
 description: "客行录 · 把旅途与日常收进书里"
 publish_to: 'none'
-version: 1.0.0+30
+version: 1.0.0+31
 
 environment:
   sdk: ^3.13.5

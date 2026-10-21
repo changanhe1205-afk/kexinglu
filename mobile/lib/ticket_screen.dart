@@ -33,19 +33,17 @@ class _TicketScreenState extends State<TicketScreen> {
   final controller = PageController(viewportFraction: .88);
   double page = 0;
   String? flying;
-  final backs = <String>{};
   Future<void> fly(Entry e, BuildContext cardContext) async {
     if (flying != null) return;
     final box = cardContext.findRenderObject() as RenderBox?;
     if (box == null) return;
     final origin = box.localToGlobal(Offset.zero) & box.size;
-    final wasBack = backs.contains(e.id);
     setState(() => flying = e.id);
     await showGeneralDialog<void>(context: context, barrierDismissible: false,
       barrierColor: Colors.transparent, transitionDuration: Duration.zero,
-      pageBuilder: (_, _, _) => TicketFlight(origin: origin, front: paper(e, back: wasBack),
-        back: paper(e, back: !wasBack), reduced: widget.reduced));
-    if (mounted) setState(() { flying = null; wasBack ? backs.remove(e.id) : backs.add(e.id); });
+      pageBuilder: (_, _, _) => TicketFlight(origin: origin, front: paper(e),
+        back: paper(e, back: true), reduced: widget.reduced));
+    if (mounted) setState(() { flying = null; });
   }
   @override
   void initState() {
@@ -258,7 +256,7 @@ class _TicketScreenState extends State<TicketScreen> {
                       onTap: () => fly(items[i], cardContext),
                       onLongPress: () => open(items[i]),
                       child: Opacity(opacity: flying == items[i].id ? 0 : 1,
-                        child: paper(items[i], back: backs.contains(items[i].id))),
+                        child: paper(items[i])),
                     )),
                   ),
                 );
