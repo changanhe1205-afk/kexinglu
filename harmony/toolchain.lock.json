@@ -1,0 +1,52 @@
+{
+  "packages-image": {
+    "url": "https://gitcode.com/openharmony-tpc/flutter_packages.git",
+    "commit": "1af98579e1a95d4fca19e422d26f5b6856ac38ba"
+  },
+  "packages-url": {
+    "url": "https://gitcode.com/openharmony-tpc/flutter_packages.git",
+    "commit": "ae4494a78db5a9e0fe760b0eba9231605ae45716"
+  },
+  "packages-path": {
+    "url": "https://gitcode.com/openharmony-tpc/flutter_packages.git",
+    "commit": "d4e49daa0acbd0bc419d58b1da27d64d44fab54b"
+  },
+  "packages-prefs": {
+    "url": "https://gitcode.com/openharmony-tpc/flutter_packages.git",
+    "commit": "4a7a536bba8447c7d4eacde2fb1a2e0fbe2da044"
+  },
+  "file_picker": {
+    "url": "https://gitcode.com/CPF-Flutter/fluttertpc_file_picker.git",
+    "commit": "98af21560ef18e2bc428389e07c12ab7c17b98fb"
+  },
+  "geolocator": {
+    "url": "https://gitcode.com/CPF-Flutter/fluttertpc_geolocator.git",
+    "commit": "6fa6307b29fa6bc0e1983b146d2c33de48740862"
+  },
+  "geocoding": {
+    "url": "https://gitcode.com/CPF-Flutter/fluttertpc_geocoding.git",
+    "commit": "ccf2572af4957f331c435f4ad834d4b922642ba9"
+  },
+  "secure": {
+    "url": "https://gitcode.com/CPF-Flutter/fluttertpc_flutter_secure_storage.git",
+    "commit": "67c7b82e85b08a649dfd4f2bb0c455011a9384fa"
+  },
+  "share": {
+    "url": "https://gitcode.com/CPF-Flutter/flutter_plus_plugins.git",
+    "commit": "bfd882da6893c4c8bfa1648ac637c2d557e6f4fa"
+  },
+  "links": {
+    "url": "https://gitcode.com/CPF-Flutter/fluttertpc_app_links.git",
+    "commit": "109fac28a22c3f5ab403049adec46412dacf1acd"
+  },
+  "sqflite": {
+    "url": "https://gitcode.com/CPF-Flutter/flutter_sqflite.git",
+    "commit": "5ef0761001378455e872e46d1c0620d39dcc1002"
+  },
+  "flutter": {
+    "url": "https://gitcode.com/CPF-Flutter/flutter_flutter.git",
+    "commit": "62357a93d653bf844f730bb1f4b7cc9e2139d14e",
+    "tag": "3.41.9+ohos-1.0.2",
+    "dart": "3.11"
+  }
+}

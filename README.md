@@ -6,7 +6,7 @@
 
 **把走过的路、尝过的味道、看过的故事，留给以后的自己。**
 
-一款支持 Windows 与 Android 的本地优先生活记录应用。旅行日志、旅程票根、自由手账、食光小记与影视收藏，在一个安静的空间里慢慢积累。
+一款支持 Windows、Android 与 Linux 的本地优先生活记录应用。旅行日志、旅程票根、自由手账、食光小记与影视收藏，在一个安静的空间里慢慢积累。原生 HarmonyOS 手机与平板版正在验证与准备上架。
 
 [下载 Windows / Android 1.0.0](https://github.com/changanhe1205-afk/kexinglu/releases/latest) · [English](README.en.md) · [使用与数据说明](docs/USAGE.md) · [更新记录](CHANGELOG.md)
 
@@ -21,6 +21,8 @@
 - 生日当天按手机当地日期展示祝福，同一账号在该设备当天只展示一次。
 
 [访问下载网站](https://waylore-kexinglu.fonddill9.chatgpt.site) · [支持开发者](docs/SUPPORT.md)
+
+[鸿蒙手机与平板适配进展](harmony/README.md)：1.0.0 原生商店包已完成编译与签名校验，正在进行兼容性验证，尚未在华为应用市场发布。
 
 ## 界面预览
 
@@ -55,7 +57,7 @@
 
 ## 本地数据与联网功能
 
-记录、图片和设置保存在本机，没有应用账号或云同步。默认数据目录为 `%LOCALAPPDATA%\客行录`，也支持沿用旧版或用户自选目录；配置位于 `%APPDATA%\客行录\settings.json`。
+记录、图片和设置默认保存在本机；可选账号登录与云同步用于跨设备共享自己的记录。Windows 默认数据目录为 `%LOCALAPPDATA%\客行录`，也支持沿用旧版或用户自选目录；配置位于 `%APPDATA%\客行录\settings.json`。
 
 “本地记录”不代表所有功能都不联网：天气和城市定位、在线地图瓦片需要外部服务。可选 AI 票根识别会把你选择的截图发送给自己配置的模型服务商；API Key 保存在本地配置文件中，未加密。请不要分享包含该配置的备份。详见 [使用与数据说明](docs/USAGE.md)。
 

@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "把旅途与日常收进书里"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "把旅途与日常收进书里"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "客行录"
+    },
+    {
+      "name": "location_reason",
+      "value": "用于显示当前位置的天气，拒绝后仍可手动选择城市。"
+    }
+  ]
+}

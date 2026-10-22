@@ -601,3 +601,5 @@ img { max-width: 100%; display: block; }
 @media(max-width:700px){.support-section{grid-template-columns:1fr;gap:32px}.support-code{max-width:250px}.hero-art{order:0}.hero-copy{order:-1}}
 
 @media(min-width:701px){.download-card .desc{min-height:88px}}
+
+.harmony-status{margin-top:24px;border-style:dashed}.harmony-status .desc{max-width:760px}.harmony-status .ver{background:var(--paper);color:var(--muted)}

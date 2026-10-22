@@ -1,6 +1,6 @@
 # Waylore · 客行录
 
-A free, local-first journal for Windows and Android. Keep journeys, tickets, meals, films and personal scrapbooks in one place.
+A free, local-first journal for Windows, Android and Linux. Keep journeys, tickets, meals, films and personal scrapbooks in one place.
 
 [Download both clients · 1.0.0](https://github.com/changanhe1205-afk/kexinglu/releases/latest) · [Website](https://waylore-kexinglu.fonddill9.chatgpt.site/en.html) · [简体中文](README.md)
 
@@ -13,6 +13,8 @@ A free, local-first journal for Windows and Android. Keep journeys, tickets, mea
 - A birthday greeting on the matching local calendar day, shown once per account per device per day.
 
 Install over the existing app to keep local data. Back up important records before updating. Public versions remain 1.0.0; Android uses an increasing internal build number.
+
+[Native HarmonyOS phone and tablet port](harmony/README.md): the 1.0.0 AppGallery package has been compiled, signed and signature-verified. Compatibility testing and store preparation are in progress; it has not been published on AppGallery.
 
 ## Optional support
 

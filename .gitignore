@@ -35,6 +35,15 @@ key.properties
 mobile/.metadata
 
 *.p12
+*.p7b
+*.cer
+*.csr
+*.pfx
+# Local HarmonyOS signing configuration and build state
+harmony/ohos/local.properties
+harmony/ohos/signing/
+**/oh_modules/
+**/.hvigor/
 
 # Private weather credentials, generated distribution copies and Sites checkout
 tools/qweather/
