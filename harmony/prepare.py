@@ -149,6 +149,14 @@ def prepare(cache):
     GeocodingOhos.registerWith();
   }''')
     main.write_text(content, 'utf-8')
+    about = workspace / 'lib/profile_pages.dart'
+    about.write_text(replace_once(about.read_text('utf-8'),
+                                 "'Android · 1.0.0'", "'HarmonyOS · 1.0.0'"), 'utf-8')
+    interaction_test = workspace / 'test/mobile_interactions_test.dart'
+    content = interaction_test.read_text('utf-8')
+    if content.count("'Android · 1.0.0'") != 2:
+        raise RuntimeError('Review Harmony About visibility assertions after mobile test changes')
+    interaction_test.write_text(content.replace("'Android · 1.0.0'", "'HarmonyOS · 1.0.0'"), 'utf-8')
     print(f'Prepared {workspace}. Native compilation, signing and device validation are still required.')
 
 

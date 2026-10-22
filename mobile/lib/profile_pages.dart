@@ -400,11 +400,29 @@ class ProfileAboutScreen extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.language_rounded, color: palette.accent),
                   title: const LocalText('客行录官网'),
-                  subtitle: const Text('waylore-kexinglu.fonddill9.chatgpt.site'),
+                  subtitle: const LocalText('waylore-kexinglu.fonddill9.chatgpt.site'),
                   trailing: const Icon(Icons.open_in_new_rounded, size: 18),
                   onTap: () async {
                     final opened = await launchUrl(Uri.parse('https://waylore-kexinglu.fonddill9.chatgpt.site'), mode: LaunchMode.externalApplication);
-                    if (!opened && context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('暂时无法打开浏览器，请稍后重试')));
+                    if (!opened && context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: LocalText('暂时无法打开浏览器，请稍后重试')));
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.privacy_tip_outlined, color: palette.accent),
+                  title: const LocalText('隐私政策'),
+                  trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+                  onTap: () async {
+                    final opened = await launchUrl(Uri.parse('https://waylore-kexinglu.fonddill9.chatgpt.site/privacy.html'), mode: LaunchMode.externalApplication);
+                    if (!opened && context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: LocalText('暂时无法打开浏览器，请稍后重试')));
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.mail_outline_rounded, color: palette.accent),
+                  title: const LocalText('联系与支持'),
+                  subtitle: const LocalText('kexinglu@yeah.net'),
+                  onTap: () async {
+                    final opened = await launchUrl(Uri(scheme: 'mailto', path: 'kexinglu@yeah.net'));
+                    if (!opened && context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: LocalText('请发送邮件至 kexinglu@yeah.net')));
                   },
                 ),
                 ProfilePaper(

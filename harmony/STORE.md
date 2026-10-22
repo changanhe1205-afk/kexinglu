@@ -2,6 +2,8 @@
 
 当前交付为原生 HarmonyOS 手机/平板工程与 AppGallery 商店包。尚未提交审核，以下介绍不得表述为已经上架。包名：`com.changanhe.kexinglu`，公开版本：`1.0.0`，内部版本：`1`。
 
+公开用户支持/隐私联系邮箱：`kexinglu@yeah.net`。隐私政策：<https://waylore-kexinglu.fonddill9.chatgpt.site/privacy.html>。
+
 ## 中文简介
 
 把走过的路、尝过的味道、看过的故事，留给以后的自己。

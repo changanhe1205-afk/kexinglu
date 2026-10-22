@@ -1184,5 +1184,15 @@ const uiMessages = {
     "en": "Thunderstorm",
     "ja": "雷雨",
     "zh-TW": "雷雨"
+  },
+  "隐私政策": {
+    "en": "Privacy policy",
+    "ja": "プライバシーポリシー",
+    "zh-TW": "隱私政策"
+  },
+  "联系与支持": {
+    "en": "Contact and support",
+    "ja": "お問い合わせ・サポート",
+    "zh-TW": "聯絡與支援"
   }
 };

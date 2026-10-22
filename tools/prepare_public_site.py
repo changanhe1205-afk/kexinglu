@@ -32,9 +32,8 @@ if 'id="support"' not in page:
 page=re.sub(r'(\s*<a href="#support">支持</a>)+', '\n      <a href="#support">支持</a>', page)
 page=re.sub(r'(\s*<a class="language-link" href="en.html" lang="en">EN</a>)+', '\n    <a class="language-link" href="en.html" lang="en">EN</a>', page)
 (site/'index.html').write_text(page,encoding='utf-8')
-privacy=(site/'privacy.html').read_text('utf-8').replace('和风天气（QWeather）','Open-Meteo').replace('和风天气','Open-Meteo')
-privacy=privacy.replace('两者仅接收','服务仅接收')
-(site/'privacy.html').write_text(privacy,encoding='utf-8')
+# Privacy copy is maintained against the actual clients, never rewritten by
+# packaging substitutions that could silently change its provider disclosures.
 css=(site/'styles.css').read_text('utf-8')
 if '.support-section' not in css:
     css+='''\n.support-section{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;align-items:center;border-top:1px solid var(--line)}
