@@ -9,6 +9,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 import 'look.dart';
 import 'store.dart';
+import 'weather_refresh_frame.dart';
 
 class WeatherPlace {
   final double lat, lon;
@@ -508,7 +509,9 @@ class _WeatherPanelState extends State<WeatherPanel> with WidgetsBindingObserver
       ]),
     );
 
-    return Container(
+    return WeatherRefreshFrame(refreshing: busy, color: p.accent,
+      reduced: widget.store.settings['reduced'] == true,
+      child: Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: p.paper.withValues(alpha: .84),
@@ -570,7 +573,6 @@ class _WeatherPanelState extends State<WeatherPanel> with WidgetsBindingObserver
           const SizedBox(height: 8),
           FilledButton.tonalIcon(onPressed: locate, icon: const Icon(Icons.near_me_outlined), label: const LocalText('定位当地天气')),
         ],
-        if (busy) const Padding(padding: EdgeInsets.symmetric(vertical: 12), child: LinearProgressIndicator(minHeight: 2)),
         if (error != null) ...[
           const SizedBox(height: 6),
           Text(error!, style: TextStyle(fontSize: 12, color: p.accent)),
@@ -581,7 +583,7 @@ class _WeatherPanelState extends State<WeatherPanel> with WidgetsBindingObserver
           ]),
         ],
       ]),
-    );
+    ));
   }
 }
 
