@@ -47,7 +47,8 @@ if '.support-section' not in css:
 '''
 (site/'styles.css').write_text(css,encoding='utf-8')
 out=ROOT/'site-public/dist';out.mkdir(parents=True,exist_ok=True)
-for name in ('index.html','en.html','privacy.html','styles.css','app.js'):
+for name in ('index.html','en.html','privacy.html','harmony.html','styles.css','app.js'):
     if (site/name).exists():shutil.copyfile(site/name,out/name)
 shutil.copytree(site/'assets',out/'assets',dirs_exist_ok=True)
 print('Public static files prepared; installation files are served by GitHub Releases.')
+
