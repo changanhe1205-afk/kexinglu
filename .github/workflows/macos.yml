@@ -20,7 +20,10 @@ jobs:
       - name: Offline packaged startup
         run: python tools/smoke_macos.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: kexinglu-macos-evaluation
-          path: dist/Kexinglu-macOS-1.0.0-*-unsigned.zip
+          path: |
+            dist/Kexinglu-macOS-1.0.0-*-unsigned.zip
+            dist/macos-startup.log
           if-no-files-found: error

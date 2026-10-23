@@ -8,7 +8,11 @@ with tempfile.TemporaryDirectory(prefix="kexinglu-qa-") as home:
         p=subprocess.Popen([str(app)],env=env,stdout=log,stderr=log,start_new_session=True)
         try:
             time.sleep(20)
-            if p.poll() is not None: raise RuntimeError(f"Application exited: {p.returncode}")
+            if p.poll() is not None:
+                log.flush()
+                print(Path("dist/macos-startup.log").read_text())
+                for report in Path("/tmp/客行录").glob("startup.log*"): print(report.read_text())
+                raise RuntimeError(f"Application exited: {p.returncode}")
             processes=subprocess.check_output(["ps","-axo","command"],text=True)
             if "Flet.app/Contents/MacOS/Flet" not in processes: raise RuntimeError("Native Flet client did not launch")
             print("PASS: packaged Python host and native client running after 20 seconds; UI interaction not verified")
