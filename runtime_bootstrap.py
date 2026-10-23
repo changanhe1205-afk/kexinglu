@@ -5,8 +5,14 @@ import sys
 
 
 def configure_desktop_runtime():
-    if not getattr(sys, "frozen", False) or sys.platform not in ("win32", "linux"):
+    if not getattr(sys, "frozen", False) or sys.platform not in ("win32", "linux", "darwin"):
         return None
+    if sys.platform == "darwin":
+        client = Path(sys._MEIPASS) / "flet_desktop/app/Flet.app"
+        if not (client / "Contents/MacOS/Flet").is_file():
+            raise RuntimeError("Bundled Mac client is missing")
+        os.environ["FLET_VIEW_PATH"] = str(client.parent)
+        return client
     client = Path(sys._MEIPASS) / "flet_desktop" / "app" / "flet"
     required = (("flet.exe", "flutter_windows.dll", "data/icudtl.dat", "data/app.so")
                 if sys.platform == "win32" else ("flet", "lib/libflutter_linux_gtk.so", "data/icudtl.dat"))
