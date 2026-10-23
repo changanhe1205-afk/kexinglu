@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>下载客行录 · Waylore — Windows / macOS / Linux / Android</title>
+  <meta name="description" content="下载客行录（Waylore）最新版 1.0.0：Windows、Android、macOS 与 Linux，各平台一个安装包，免费、本地优先。">
+  <meta property="og:title" content="下载客行录 · Waylore">
+  <meta property="og:description" content="选择你的平台，获取最新版。免费、本地优先。">
+  <meta property="og:image" content="assets/app.png">
+  <link rel="icon" href="assets/app.png">
+  <link rel="stylesheet" href="download.css">
+</head>
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="客行录 产品主页">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="1" y="1" width="30" height="30" rx="9" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M8 10l3 12 5-9.5 5 9.5 3-12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">Waylore<span class="brand-cn">客行录</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#showcase">界面</a>
+        <a href="#features">功能</a>
+        <a href="#platforms">下载</a>
+        <a href="index.html#privacy">隐私</a>
+      </nav>
+      <span class="nav-version">v1.0.0</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span>Waylore · 客行录 · 下载</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="line-inner">把旅途装进</span></span>
+          <span class="line"><span class="line-inner">你的<span class="accent">设备</span>。</span></span>
+        </h1>
+        <p class="lede">一个版本，四个平台。记录留在本机，免费使用，无需注册。</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-big btn-aurora shine" id="hero-cta" href="#platforms" data-magnetic>
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5"/><path d="M4 21h16"/></svg>
+            <span id="hero-cta-label">下载最新版</span>
+          </a>
+          <a class="btn btn-ghost" href="#platforms" data-magnetic>查看全部平台</a>
+        </div>
+        <ul class="hero-meta">
+          <li>最新稳定版 1.0.0</li>
+          <li>免费 · 本地优先</li>
+          <li>Windows / Android / macOS / Linux</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <div class="device" id="device">
+          <img src="assets/screenshots/home.webp" alt="客行录首页：问候、实时天气、每日一句与快捷记录">
+        </div>
+        <span class="hero-chip chip-1"><span class="dot"></span>本地优先 · 自由记录</span>
+        <span class="hero-chip chip-2">v1.0.0 · 全平台</span>
+      </div>
+    </section>
+
+    <!-- 应用界面展示 -->
+    <section class="container showcase" id="showcase">
+      <div class="section-head">
+        <p class="eyebrow"><span class="pulse"></span>The interface</p>
+        <h2>一页一页，都是自己的故事。</h2>
+        <p class="section-sub">旅行、票根、美食、影视、手账与天气，都在同一个地方。</p>
+      </div>
+      <div class="stage">
+        <button class="stage-arrow stage-prev" id="stage-prev" type="button" aria-label="上一张">‹</button>
+        <div class="stage-view">
+          <div class="stage-phone" id="stage-phone">
+            <img class="stage-img is-active" id="stage-img-a" src="assets/screenshots/home.webp" alt="首页：问候、实时天气、每日一句与快捷记录">
+            <img class="stage-img" id="stage-img-b" src="assets/screenshots/travel.webp" alt="旅途：地图与故事">
+          </div>
+          <p class="stage-caption" id="stage-caption">首页 · 天气与记录入口</p>
+          <div class="stage-dots" id="stage-dots"></div>
+          <div class="stage-bar"><span id="stage-bar-fill"></span></div>
+        </div>
+        <button class="stage-arrow stage-next" id="stage-next" type="button" aria-label="下一张">›</button>
+      </div>
+      <p class="scroll-hint">自动切换 · 悬停暂停 · 点击看大图</p>
+    </section>
+
+    <!-- 功能简介 -->
+    <section class="container features" id="features">
+      <div class="section-head">
+        <p class="eyebrow"><span class="pulse"></span>What you can keep</p>
+        <h2>把散落的日子，收成几页。</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <span class="ficon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M8 7v13M16 7v13"/></svg></span>
+          <h3>旅行日志</h3>
+          <p>记下地点、照片和当时的心情，让地图慢慢亮起来。</p>
+        </article>
+        <article class="feature">
+          <span class="ficon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2.5"/><path d="M9 7v10M15 7v10" stroke-dasharray="2 2"/></svg></span>
+          <h3>旅程票根</h3>
+          <p>机票、车票都能翻面保存，正面是行程，背面是故事。</p>
+        </article>
+        <article class="feature">
+          <span class="ficon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0Z"/><path d="M8 9c0-2 1-3 2-4M12 9c0-2 1-3 2-4"/></svg></span>
+          <h3>食光小记</h3>
+          <p>一餐一味，连价格和地点一起收好，下次还能按图索骥。</p>
+        </article>
+        <article class="feature">
+          <span class="ficon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M7 6v12M17 6v12M7 9h2M7 12h2M7 15h2M15 9h2M15 12h2M15 15h2"/></svg></span>
+          <h3>影视收藏</h3>
+          <p>留住散场后的感受，评分、导演、主演与观后感都能放进去。</p>
+        </article>
+        <article class="feature">
+          <span class="ficon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-2-1.5-4.5-2-7-2v13c2.5 0 5 .5 7 2 2-1.5 4.5-2 7-2V4c-2.5 0-5 .5-7 2Z"/><path d="M12 6v13"/></svg></span>
+          <h3>旅行手账</h3>
+          <p>把照片、文字和贴纸排成书页，翻起来像一本真正的旅行书。</p>
+        </article>
+        <article class="feature">
+          <span class="ficon"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></span>
+          <h3>实时天气</h3>
+          <p>和风天气数据，自动定位当前城市，只看当下这一眼。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="platforms">
+      <div class="section-head">
+        <p class="eyebrow"><span class="pulse"></span>Choose your platform</p>
+        <h2>四个平台，一个版本。</h2>
+        <p class="section-sub">全部为最新稳定版 1.0.0。自动识别你的系统并标记推荐下载。</p>
+      </div>
+      <div class="pcards" id="pcards"></div>
+      <p class="grid-note">macOS 版为未签名测试包，首次打开请参考 Apple 官方说明；Linux 另提供便携 TAR.GZ。所有文件均可校验 SHA256。</p>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="1" y="1" width="30" height="30" rx="9" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M8 10l3 12 5-9.5 5 9.5 3-12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <strong>Waylore · 客行录</strong>
+          <span>把旅途与日常收进书里。</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">产品主页</a>
+        <a href="index.html#features">功能</a>
+        <a href="privacy.html">隐私政策</a>
+        <a href="https://github.com/changanhe1205-afk/kexinglu" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:kexinglu@yeah.net">kexinglu@yeah.net</a>
+      </div>
+      <p class="copyright">© 2026 Waylore · 本地优先的旅行与生活记录应用。下载内容由 GitHub Releases 提供。</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="download.js"></script>
+</body>
+</html>
