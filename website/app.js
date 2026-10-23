@@ -55,14 +55,22 @@
 // Native preview: no external runtime or image requests.
 (function(){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const dialog=document.createElement('dialog');dialog.className='image-preview';
- const close=document.createElement('button');close.type='button';close.textContent='×';close.setAttribute('aria-label','关闭预览 / Close preview');
- const img=document.createElement('img');dialog.append(close,img);document.body.append(dialog);
+ const sources=[...document.querySelectorAll('.shot img')];let current=0;let opener;
+ const dialog=document.createElement('dialog');dialog.className='image-preview';dialog.setAttribute('aria-label','应用界面预览 / App preview');
+ const close=document.createElement('button');close.type='button';close.className='preview-close';close.textContent='×';close.setAttribute('aria-label','关闭预览 / Close preview');
+ const img=document.createElement('img');const caption=document.createElement('p');caption.className='preview-caption';caption.setAttribute('aria-live','polite');
+ const controls=document.createElement('div');controls.className='preview-controls';
+ function arrow(label,step){const btn=document.createElement('button');btn.type='button';btn.textContent=label;btn.onclick=()=>show(current+step);return btn;}
+ controls.append(arrow('← 上一张 / Previous',-1),arrow('下一张 / Next →',1));
+ dialog.append(close,img,caption,controls);document.body.append(dialog);
+ function show(index){current=(index+sources.length)%sources.length;const source=sources[current];img.src=source.currentSrc||source.src;img.alt=source.alt;caption.textContent=(source.closest('figure').querySelector('figcaption')?.textContent||source.alt)+' · '+(current+1)+' / '+sources.length;}
  close.onclick=()=>dialog.close();dialog.onclick=e=>{if(e.target===dialog)dialog.close();};
- document.querySelectorAll('.shot img').forEach(source=>{
+ dialog.addEventListener('close',()=>{document.body.classList.remove('preview-open');opener?.focus();});
+ dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(current+(e.key==='ArrowRight'?1:-1));}});
+ sources.forEach((source,index)=>{
   const button=document.createElement('button');button.className='preview-trigger';button.type='button';button.setAttribute('aria-label','查看大图 / Preview: '+source.alt);
   source.replaceWith(button);button.append(source);
-  button.onclick=()=>{img.src=source.currentSrc||source.src;img.alt=source.alt;dialog.showModal();};
+  button.onclick=()=>{opener=button;show(index);document.body.classList.add('preview-open');dialog.showModal();};
  });
  document.querySelectorAll('.hero-phone').forEach(el=>{
   el.addEventListener('pointermove',e=>{if(reduced.matches||e.pointerType!=='mouse')return;const box=el.getBoundingClientRect();el.style.transform='perspective(1000px) rotateY('+((e.clientX-box.left)/box.width-.5)*8+'deg) rotateX('+(-((e.clientY-box.top)/box.height-.5)*6)+'deg)';});

@@ -618,3 +618,16 @@ img { max-width: 100%; display: block; }
 .btn{transition:transform .22s,box-shadow .22s,background .22s}
 .btn:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.hero-phone,.shot .phone,.btn{transition:none!important;transform:none!important}}
+
+.preview-open{overflow:hidden}
+.image-preview{padding:20px;overflow:auto}
+.image-preview img{max-height:72dvh;margin:auto}
+.image-preview .preview-close{position:absolute;right:22px;top:22px;width:44px;height:44px}
+.preview-caption{text-align:center;margin:16px 6px 12px;font-size:14px;color:#34554e}
+.preview-controls{display:flex;justify-content:space-between;gap:16px}
+.image-preview .preview-controls button{position:static;width:auto;height:auto;border-radius:12px;font-size:13px;padding:12px 18px;box-shadow:none;border:1px solid #34554e22}
+.image-preview button:focus-visible{outline:3px solid #367f74;outline-offset:3px}
+.image-preview[open]{animation:preview-enter .25s ease-out}
+@keyframes preview-enter{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:600px){.image-preview{padding:12px;max-width:96vw}.image-preview img{max-width:86vw}.image-preview .preview-controls button{padding:12px 10px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.image-preview[open]{animation:none}}
